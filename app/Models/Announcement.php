@@ -9,5 +9,9 @@ class Announcement extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'body'];
+    protected $fillable = ['title', 'body','category_id'];
+    
+    public function announcements(){
+        return $this->hasMany(Announcement::class);
+    }
 }

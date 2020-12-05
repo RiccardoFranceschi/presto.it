@@ -515,8 +515,8 @@ eval("// removed by extract-text-webpack-plugin//# sourceURL=[module]\n//# sourc
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Davide\wa\laravel\team7_presto\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\Davide\wa\laravel\team7_presto\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\wa\Aulab\Progetto FINALE\team7_presto\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\wa\Aulab\Progetto FINALE\team7_presto\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

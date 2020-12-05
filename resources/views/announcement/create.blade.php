@@ -44,12 +44,12 @@
           <div class="form-group">
             <label for="category" class="font-weight-bold lead">Scegli la categoria</label>
              <select class="form-control" name="category" id="category">
-              {{-- @foreach ($categories as $category)
+              @foreach ($categories as $category)
               <option value="{{$category->id}}"
                 {{old('category') == $category->id ? 'selected' : ''}}
                 > {{$category->name}}
               </option> 
-              @endforeach  --}}
+              @endforeach 
 
               
             </select>

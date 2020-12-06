@@ -46,12 +46,10 @@
             <select class="form-control" name="category" id="exampleFormControlSelect1">
               @foreach ($categories as $category)
               <option value="{{$category->id}}" >{{$category->name}}</option> 
-              @endforeach
-              
+              @endforeach 
             </select>
           </div>
-          
-          <div class="form-group">
+           <div class="form-group">
             <label for="exampleFormControlTextarea1" class="font-weight-bold lead">Testo del post</label>
             <textarea class="form-control" name="body" id="exampleFormControlTextarea1" rows="3" value="{{old('body')}}"></textarea>
           </div>

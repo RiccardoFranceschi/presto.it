@@ -42,11 +42,16 @@
             <input type="text" class="form-control" name="title" id="exampleFormControlInput1" placeholder="Titolo" value="{{old('title')}}">
           </div>
           <div class="form-group">
-            <label for="exampleFormControlSelect1" class="font-weight-bold lead">Scegli la categoria</label>
-            <select class="form-control" name="category" id="exampleFormControlSelect1">
+            <label for="category" class="font-weight-bold lead">Scegli la categoria</label>
+             <select class="form-control" name="category" id="category">
               @foreach ($categories as $category)
-              <option value="{{$category->id}}" >{{$category->name}}</option> 
+              <option value="{{$category->id}}"
+                {{old('category') == $category->id ? 'selected' : ''}}
+                > {{$category->name}}
+              </option> 
               @endforeach 
+
+              
             </select>
           </div>
            <div class="form-group">

@@ -24,12 +24,13 @@ class CreateCategoriesTable extends Migration
             'Motori', 'Informatica', 'Libri', 'Giochi', 'Sport', 'Telefoni', 
             'Arredamento', 'Elettrodomestici', 'Immobili', 'Televisioni',  
         ];
-
         foreach($categories as $category){
-            $i = new Category();
+            $i = new Category();          
             $i->name = $category;
             $i->save();
         }
+
+        
     }
 
     /**

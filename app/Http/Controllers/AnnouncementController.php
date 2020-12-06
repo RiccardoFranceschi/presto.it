@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AnnouncementRequest;
-use Illuminate\Http\Request;
 use App\Models\Announcement;
 use App\Models\Category;
 use Illuminate\Support\Facades\View;
@@ -20,7 +19,8 @@ class AnnouncementController extends Controller
         
     }
 
-    public function create() {
+    public function create()
+    {
 
         return view('announcement.create');
     }

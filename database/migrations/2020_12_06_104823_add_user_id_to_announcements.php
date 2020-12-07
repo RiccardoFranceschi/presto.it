@@ -14,7 +14,8 @@ class AddUserIdToAnnouncements extends Migration
     public function up()
     {
         Schema::table('announcements', function (Blueprint $table) {
-            //
+            $table->unsignedBigInteger('user_id')->default(1);
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
@@ -26,7 +27,8 @@ class AddUserIdToAnnouncements extends Migration
     public function down()
     {
         Schema::table('announcements', function (Blueprint $table) {
-            //
+            $table->dropForeign(['user_id']);
+            $table->dropColumn('user_id');
         });
     }
 }

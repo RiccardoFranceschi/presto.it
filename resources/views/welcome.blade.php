@@ -55,7 +55,7 @@
                         <div class="card-footer d-flex justify-content-between">
                         <strong>Category: <a href="#">{{$announcement->category->name}}</a></strong>
                         <i>{{$announcement->created_at->format('d/m/Y')}} - </i>
-                        {{-- {{$announcement->user->name}} --}}
+                        {{$announcement->user->name}}
                         </div>
                     </div>
                 </div>

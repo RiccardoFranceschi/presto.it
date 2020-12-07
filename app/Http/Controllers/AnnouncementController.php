@@ -41,4 +41,15 @@ class AnnouncementController extends Controller
         return redirect('/')->with('message', 'il tuo annuncio è stato creato con successo!');
 
     }
+
+    public function show($announcement) {
+     
+
+        $announcement = Announcement::find($announcement);
+        
+
+
+        return view('announcement.show', compact('announcement'));
+
+    }
 }

@@ -1,4 +1,5 @@
 <x-layout>
+    <x-slot name="title">Presto.it - Home</x-slot>
     {{-- <h1 class="text-center">Benvenuti in presto!</h1>
     <div class="container my-5 py-5">
         <div class="row mb-4">
@@ -41,15 +42,15 @@
         @foreach ($announcements as $announcement)
             
             <div class="row justify-content-center">
-                <div class="col-md-8 my-5 py-5">
+                <div class="col-md-8 my-3">
                     <div class="card text-center">
                         <div class="card-header">
                         {{$announcement->title}}
                         </div>
                         <div class="card-body">
-                            <img src="https://via.placeholder.com/300x150.png" alt="" class="rounded float-left">
+                            <img src="https://via.placeholder.com/300x150.png" alt="" class="rounded img-fluid float-left">
                         <p class="card-text">{{$announcement->body}}</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        <a href="{{route('announcement.show', compact('announcement'))}}" class="btn btn-primary">Go somewhere</a>
                         </div>
                         <div class="card-footer d-flex justify-content-between">
                         <strong>Category: <a href="#">{{$announcement->category->name}}</a></strong>

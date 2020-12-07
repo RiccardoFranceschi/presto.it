@@ -24,3 +24,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/announcement/new', [AnnouncementController::class, 'create'])->name('announcement.create');
 Route::post('/announcement/store' , [AnnouncementController::class, 'store'])->name('announcement.store');
+// VISUALIZZARE IL SINGOLO ANNUNCIO
+Route::get('/announcement/{announcement}', [AnnouncementController::class, 'show'])->name('announcement.show');

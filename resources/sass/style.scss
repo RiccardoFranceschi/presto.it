@@ -45,10 +45,24 @@
   .bg-first {
     background-color: var(--first-color);
   }
+
+  .bg-navbar {
+    background-color: #EBEBEB;
+  }
   
   .bg-accent {
     background-color: var(--accent);
   }
+
+
+  .navbar-toggler {
+    border: 0;
+  }
+
+  .navbar-toggler-icon {
+    color: var(--second-color);
+  }
+  
   
   .nav-link {
     color: var(--first-color);
@@ -73,3 +87,9 @@
       background-position: center;
   }
   
+  .header-posts {
+    background: url(/media/header-posts.jpg);
+    background-size: cover;
+    height: 80vh;
+    background-position: 50% 90%;
+}

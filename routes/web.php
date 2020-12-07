@@ -26,3 +26,6 @@ Route::get('/announcement/new', [AnnouncementController::class, 'create'])->name
 Route::post('/announcement/store' , [AnnouncementController::class, 'store'])->name('announcement.store');
 // VISUALIZZARE IL SINGOLO ANNUNCIO
 Route::get('/announcement/{announcement}', [AnnouncementController::class, 'show'])->name('announcement.show');
+// VISUALIZZARE PAGINA CATEGORIA
+Route::get('/category/{name}/{id}/announcement', [PublicController::class, 'category'])->name('announcement.category');
+

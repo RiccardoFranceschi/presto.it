@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-first fixed-top">
+<nav class="navbar navbar-expand-lg navbar-light bg-first sticky-top">
     <a class="navbar-brand" href="/"><img class="logo ml-3" src="/media/2026703-ffffff.png" alt="" /></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

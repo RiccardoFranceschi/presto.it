@@ -10915,6 +10915,15 @@ a.text-dark:focus {
   --accent: #f89a20;
 }
 
+#indicator {
+  background: var(--accent);
+  height: 0.5rem;
+  width: 0;
+  position: fixed;
+  top: 95px;
+  z-index: 999;
+}
+
 .text-first {
   color: var(--first-color);
 }

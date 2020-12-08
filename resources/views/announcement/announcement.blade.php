@@ -1,5 +1,5 @@
-<div class="row justify-content-center">
-    <div class="col-md-8 my-3">
+<div class="row">
+    <div class="col-12 col-md-6 my-3">
         <div class="card text-center">
             <div class="card-header">
                 {{ $announcement->title }}

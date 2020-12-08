@@ -1,5 +1,5 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-first fixed-top">
-    <a class="navbar-brand" href="/"><img class="logo ml-3" src="/media/2026703-ffffff.png" alt="" /></a>
+<nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <a class="navbar-brand" href="/"><img class="logo ml-3" src="" alt="" /></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"><i class="fas fa-bars" style="color: #fff; font-size: 26px"></i></span>
@@ -8,17 +8,17 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-                <a class="nav-link font-weight-bold" href="/">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link " href="/">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item dropdown">
-                <a href="" id="categoriesDropdown" class="nav-link dropdown-toggle font-weight-bold" role="buttom"
+                <a href="" id="categoriesDropdown" class="nav-link dropdown-toggle " role="buttom"
                     data-toggle="dropdown">
                     Categorie <span class="caret"></span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right bg-first" aria-labelledby="categoriesDropdown">
                     @foreach ($categories as $category)
                         <a href="{{ route('announcement.category', [$category->name, $category->id]) }}"
-                            class="nav-link text-second">
+                            class="nav-link text-white">
                             {{ $category->name }}
                         </a>
                     @endforeach
@@ -27,18 +27,18 @@
             @guest
                 @if (Route::has('login'))
                     <li class="nav-item">
-                        <a class="nav-link font-weight-bold" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                     </li>
                 @endif
 
                 @if (Route::has('register'))
                     <li class="nav-item">
-                        <a class="nav-link font-weight-bold" href="{{ route('register') }}">{{ __('Register') }}</a>
+                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                     </li>
                 @endif
             @else
                 <li class="nav-item dropdown">
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle font-weight-bold" href="#" role="button"
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                         {{ Auth::user()->name }}
                     </a>
@@ -55,7 +55,7 @@
                     </div>
                 </li>
             @endguest
-            <li class="nav-item"><a href="{{ route('announcement.create') }}" class="nav-link font-weight-bold">Nuovo
+            <li class="nav-item"><a href="{{ route('announcement.create') }}" class="nav-link">Nuovo
                     Annuncio</a> </li>
         </ul>
         {{-- <form class="form-inline my-2 my-lg-0">

@@ -11,7 +11,7 @@
                 <a class="nav-link font-weight-bold" href="/">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item dropdown">
-                <a href="" id="categoriesDropdown" class="nav-link dropdown-toggle" role="buttom"
+                <a href="" id="categoriesDropdown" class="nav-link dropdown-toggle font-weight-bold" role="buttom"
                     data-toggle="dropdown">
                     Categorie <span class="caret"></span>
                 </a>

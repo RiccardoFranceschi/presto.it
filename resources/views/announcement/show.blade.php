@@ -12,7 +12,7 @@
             Ecco la pagina del singolo post!
         </h2>
         <div class="row my-5">
-            <div class="col-12 col-md-8">
+            <div class="col-12 col-md-6">
                 <div class="col-12 col-md 8">
                     <div>
                         <h2 class="font-weight-bold">{{$announcement->title}}</h2>
@@ -27,7 +27,7 @@
                     <p>{{$announcement->created_at}}</p>
                 </div>
             </div>
-            <div class="col-12 col-md-4">
+            <div class="col-12 col-md-6">
 
             <div class="row">
                 <div class="col-12">

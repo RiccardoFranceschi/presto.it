@@ -10915,6 +10915,15 @@ a.text-dark:focus {
   --accent: #f89a20;
 }
 
+#indicator {
+  background: var(--accent);
+  height: 0.5rem;
+  width: 0;
+  position: fixed;
+  top: 95px;
+  z-index: 999;
+}
+
 .text-first {
   color: var(--first-color);
 }
@@ -10966,8 +10975,7 @@ a.text-dark:focus {
   color: var(--second-color);
 }
 
-.nav-item .nav-link {
-  color: #3490dc !important;
+.nav-link {
   font-size: 20px;
 }
 
@@ -10985,19 +10993,9 @@ a.text-dark:focus {
 
 .header {
   height: 80vh;
-  position: relative;
-  background: linear-gradient(var(--second-color), #bdbdbd94, var(--second-color)), url(/media/computer-header.jpg);
+  background: url(/media/computer-header.jpg);
   background-size: cover;
-  background-position: center;
-}
-
-.header-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  color: #FFF;
+  background-position: 50% 60%;
 }
 
 .header-posts {

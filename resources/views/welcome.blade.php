@@ -29,7 +29,6 @@
 
      <!-- Header-->
         <header class="header">
-            <div class="header-overlay d-flex align-items-center justify-content-center h1 text-primary">Presto.it - Vendi gli oggetti che non usi</div>
         </header>
 
 

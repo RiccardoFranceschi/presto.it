@@ -17,12 +17,12 @@
 
 <body>
 
-    <x-navbar />
+    <x-navbar />   
+    <div id="indicator"></div>
 
     {{ $slot }}
-    
-    <x-footer />
-    
+
+    <x-footer />   
 
 </body>
 

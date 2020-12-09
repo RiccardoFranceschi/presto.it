@@ -10,6 +10,14 @@
     --accent: #f89a20;
   }
 
+  #indicator{
+    background:var(--accent);
+    height: .5rem;
+    width: 0;
+    position: fixed;
+    top: 95px;
+    z-index: 999;
+  }
 
   .text-first {
     color: var(--first-color);
@@ -62,13 +70,11 @@
   .navbar-toggler-icon {
     color: var(--second-color);
   }
-  
-  
-  .nav-item .nav-link {
-    color: #3490dc !important;
-    font-size: 20px;
-}
-  
+   
+  .nav-link {
+    font-size:20px;
+  }
+
   .nav-link:hover {
     color: var(--first-color);
   }
@@ -83,28 +89,11 @@
 
   .header {
       height: 80vh;
-      position: relative;
-    //   background: 
-    // /* top, transparent red, faked with gradient */ 
-    // linear-gradient(
-    //   rgba(189, 120, 120, 0.45), 
-    //   rgba(189, 120, 120, 0.45)
-    // ),
-    // /* bottom, image */
-    // url(/media/computer-header.jpg);
-    background: linear-gradient( var(--second-color),#bdbdbd94, var(--second-color)),url(/media/computer-header.jpg);
+      background: url(/media/computer-header.jpg);
       background-size: cover;
-      background-position: center;
+      background-position: 50% 60%;
   }
 
-  .header-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    color: #FFF;
-  }
   
   .header-posts {
     background: url(/media/header-posts.jpg);

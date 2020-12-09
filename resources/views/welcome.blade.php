@@ -72,6 +72,23 @@
               </div>
         </div>
     </header>
+
+   <div class="container">
+       <div class="row"><div class="col-12">
+           @if(session('announcement.created.success'))
+           <div class="alert alert-success">
+               Annuncio creato correttamente
+           </div>
+           @endif
+
+           @if (session('access.denied.revisor.only'))
+           <div class="alert alert-danger">
+               Accesso non consentito - solo per revisorsi
+           </div>
+           @endif
+           
+    </div></div>
+   </div>
     
     
     <!-- Annunci più recenti -->
@@ -107,7 +124,7 @@
                     </div>
                         <div class="card-footer d-flex bg-white d-flex">
                             <div class="p-0 mr-auto ">
-                            <span class="font-weight-bold">Category: <a href="{{ route('announcement.category', [$announcement->category->name, $announcement->category->id]) }}" class="text-decoration-none">{{ $announcement->category->name }}</a></span>
+                            <span class="font-weight-bold">Category: <a href="{{ route('announcement.category', [$announcement->category->name, $announcement->category->id])}}" class="text-decoration-none">{{ $announcement->category->name }}</a></span>
                         </div>
                         <div class="p-0">
                             <i>{{ $announcement->created_at->format('d/m/Y') }} - {{ $announcement->user->name }}</i>

@@ -20,4 +20,9 @@ class Announcement extends Model
     public function user() {
         return $this->belongsTo(User::class);
     }
+ 
+    static public function ToBeRevisionedCount()
+    {
+        return Announcement::where('is_accepted', null)->count();
+    }
 }

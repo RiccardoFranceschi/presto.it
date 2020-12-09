@@ -29,8 +29,8 @@
     
     <!-- Header-->
     <header class="header d-flex align-items-center">
-        <div class="container ">
-               <h1 class="text-second text-center">Presto.it</h1>
+        <div class="container">
+               <h1 class="display-4 text-second text-center">Presto.it</h1>
             <div class="row bg-first mt-5 align-items-center">
                 <div class="col-12 bg_light px-3 py-4 d-flex rounded shadow align-items-center flex-wrap">
                   <div class="col-12 col-md-4">

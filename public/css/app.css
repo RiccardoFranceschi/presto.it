@@ -10996,6 +10996,7 @@ a.text-dark:focus {
 
 .nav-item .nav-link {
   color: var(--second-color) !important;
+  font-size: 18px;
 }
 
 .nav-item .nav-link:hover {
@@ -11021,14 +11022,6 @@ a.text-dark:focus {
 
 .navbar-toggler {
   border: 0;
-}
-
-.nav-link {
-  color: var(--first-color);
-}
-
-.nav-link:hover {
-  color: var(--first-color);
 }
 
 #navbar {

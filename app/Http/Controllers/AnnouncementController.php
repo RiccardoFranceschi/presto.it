@@ -46,7 +46,7 @@ class AnnouncementController extends Controller
         //ABBIAMO ENTRAMBE LE ENTITA', POSSIAMO FARE LA  RELAZIONE
         $announcement->user()->associate($user);
         
-        return redirect('/')->with('message', 'il tuo annuncio è stato creato con successo!');
+        return redirect()->back()->with('message', 'il tuo annuncio è stato creato con successo!');
 
     }
 

@@ -6,6 +6,7 @@ use App\Models\Category;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\Schema;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -25,9 +26,13 @@ class AppServiceProvider extends ServiceProvider
     * @return void
     */
     public function boot()
-    {
-        $categories = Category::all();
+    {   
+
         Paginator::useBootstrap();
+        if(Schema::hasTable('categories')){
+        $categories = Category::all();
+        
         View::share('categories',$categories);
+        }
     }
 }

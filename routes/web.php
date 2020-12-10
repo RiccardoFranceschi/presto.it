@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\AnnouncementController;
-use App\Http\Controllers\PublicController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PublicController;
+use App\Http\Controllers\RevisorController;
+use App\Http\Controllers\AnnouncementController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,3 +30,7 @@ Route::get('/announcement/{announcement}', [PublicController::class, 'show'])->n
 // VISUALIZZARE PAGINA CATEGORIA
 Route::get('/category/{name}/{id}/announcement', [PublicController::class, 'category'])->name('announcement.category');
 
+Route::get('/revisor/home', [RevisorController::class, 'index'])->name('revisor.home');
+
+Route::post('/revisor/announcement/{id}/accept', [RevisorController::class, 'accept'])->name('revisor.accept');
+Route::post('/revisor/announcement/{id}/reject', [RevisorController::class, 'reject'])->name('revisor.reject');

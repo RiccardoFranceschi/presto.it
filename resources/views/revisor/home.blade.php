@@ -1,7 +1,7 @@
 <x-layout>
-    @if()
+    @if($announcement)
 
-    <div class="container">
+    <div class="container min-vh-100">
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
@@ -62,7 +62,7 @@
                         <div class="col-md-6 text-right">
                             <form action="{{route('revisor.accept', $announcement->id)}}" method="POST">
                                 @csrf
-                                <button type="submit" class="btn btn-sucess">Accetta</button>
+                                <button type="submit" class="btn btn-success">Accetta</button>
                             </form>
                             </div>
 
@@ -81,9 +81,9 @@
     </div>
 
     @else
-    <div class="container">
+    <div class="container mt-5 min-vh-100">
         <div class="row">
-            <div class="col-12">
+            <div class="col-12 mt-5 pt-5 text-center">
                 <h3>Non ci sono annunci da revisionare</h3>
             </div>
         </div>

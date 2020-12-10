@@ -40,7 +40,7 @@
 
              @if(Auth::user()->is_revisor)
              <li class="nav-item">
-             <a class="nav-link" href="{{ route(revisor.home)}}">
+             <a class="nav-link" href="{{ route('revisor.home')}}">
                 Revisor home
              <span class="badge badge-pill badge-warning">{{\App\Models\Announcement::ToBeRevisionedCount()}}</span>
             </a>

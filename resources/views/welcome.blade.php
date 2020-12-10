@@ -30,65 +30,38 @@
     <!-- Header-->
     <header class="header d-flex align-items-center">
         <div class="container">
-               <h1 class="display-4 text-second text-center">Presto.it</h1>
-            <div class="row bg-first mt-5 align-items-center">
-                <div class="col-12 bg_light px-3 py-4 d-flex rounded shadow align-items-center flex-wrap">
-                  <div class="col-12 col-md-4">
-                    <div class="form-group">
-                      <label class="d-md-block text-second font-weight-bold" for="exampleInputEmail1">Cosa cerchi?</label>
-                      <input type="text" class="form-control" placeholder="es. Notebook, Smart Tv ecc." id="exampleInputEmail1"
-                        aria-describedby="emailHelp" />
+            <h1 class="display-4 text-second text-center">Presto.it</h1>
+            <div class="row mt-5 align-items-center">
+                <div class="col-md-8 offset-md-2 bg-first col-offset-2 bg_light px-3 py-4 d-flex rounded shadow align-items-center flex-wrap">
+                    <div class="col-12 col-md-8">
+                    <form action="{{route('search.results')}}" method="GET">
+                        <input type="text" class="form-control" name="result" placeholder="es. Notebook, Smart Tv ecc." id="exampleInputEmail1" aria-describedby="emailHelp" />
                     </div>
-                  </div>
-                  <div class="col-12 col-md-3">
-                    <div class="form-group">
-                      <label class="d-md-block text-second font-weight-bold" for="exampleFormControlSelect1">Categoria</label>
-                      <select class="form-control" id="exampleFormControlSelect1">
-                        <option>Computer</option>
-                        <option>TV, Audio</option>
-                        <option>Videogiochi</option>
-                        <option>Telefonia</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div class="col-12 col-md-3">
-                    <div class="form-group">
-                      <label class="d-md-block text-second font-weight-bold" for="exampleFormControlSelect1">Dove?</label>
-                      <select class="form-control" id="exampleFormControlSelect1">
-                        <option>Umbria</option>
-                        <option>Molise</option>
-                        <option>Abruzzo</option>
-                        <option>Toscana</option>
-                        <option>Marche</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div class="col-12 col-md-2 pt-3">
-                    <button type="submit" class="btn bg-accent font-weight-bold text-second w-100">
-                      Cerca
-                    </button>
-                  </div>
+                    <div class="col-12 col-md-4">
+                        <button type="submit" class="btn bg-accent font-weight-bold text-second w-100">Cerca</button>  
+                    </form>  
+                    </div> 
                 </div>
-              </div>
+            </div>
         </div>
     </header>
-
-   <div class="container">
-       <div class="row"><div class="col-12">
-           @if(session('announcement.created.success'))
-           <div class="alert alert-success">
-               Annuncio creato correttamente
-           </div>
-           @endif
-
-           @if (session('access.denied.revisor.only'))
-           <div class="alert alert-danger">
-               Accesso non consentito - solo per revisorsi
-           </div>
-           @endif
-           
-    </div></div>
-   </div>
+    
+    <div class="container">
+        <div class="row"><div class="col-12">
+            @if(session('announcement.created.success'))
+            <div class="alert alert-success">
+                Annuncio creato correttamente
+            </div>
+            @endif
+            
+            @if (session('access.denied.revisor.only'))
+            <div class="alert alert-danger">
+                Accesso non consentito - solo per revisorsi
+            </div>
+            @endif
+            
+        </div></div>
+    </div>
     
     
     <!-- Annunci più recenti -->
@@ -122,8 +95,8 @@
                             </div>
                         </div>
                     </div>
-                        <div class="card-footer d-flex bg-white d-flex">
-                            <div class="p-0 mr-auto ">
+                    <div class="card-footer d-flex bg-white d-flex">
+                        <div class="p-0 mr-auto ">
                             <span class="font-weight-bold">Category: <a href="{{ route('announcement.category', [$announcement->category->name, $announcement->category->id])}}" class="text-decoration-none">{{ $announcement->category->name }}</a></span>
                         </div>
                         <div class="p-0">

@@ -24,8 +24,8 @@ class AnnouncementRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|string| min:10',
-            'body' => 'required|string| min:30',
+            'title' => 'required|string|min:5',
+            'body' => 'required|string|min:10',
         ];
     }
 

@@ -22,7 +22,7 @@ class RevisorController extends Controller
 
     private function setAccepted($announcement_id, $value)
     {
-        $announcement = Announcement::find('announcement_id');
+        $announcement = Announcement::find($announcement_id);
         $announcement->is_accepted = $value;
         $announcement->save();
         return redirect(route('revisor.home'));

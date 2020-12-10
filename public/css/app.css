@@ -11006,6 +11006,7 @@ a.text-dark:focus {
 .logo {
   width: 40px;
   transform: rotate(50deg);
+  z-index: 999;
 }
 
 .bg-first {

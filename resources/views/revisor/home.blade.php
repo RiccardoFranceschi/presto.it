@@ -1,7 +1,10 @@
 <x-layout>
+    <div class="container my-3 py-3">
+
+    </div>
     @if($announcement)
 
-    <div class="container min-vh-100">
+    <div class="container min-vh-100 my-5 py-5">
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
@@ -34,7 +37,7 @@
                         <div class="col-md-10">
                             <div class="row mb-2">
                                 <div class="col-md-4">
-                                    <img src="https://via.placeholder.com/300×150.png" alt="" class="rounded">
+                                    <img src="https://picsum.photos/400/300" alt="" class="rounded">
                                 </div>
                                 <div class="col-md-8">
                                     ... ... ...
@@ -43,7 +46,7 @@
 
                             <div class="row mb-2">
                                 <div class="col-md-4">
-                                    <img src="https://via.placeholder.com/300×150.png" alt="" class="rounded">
+                                    <img src="https://picsum.photos/400/300" alt="" class="rounded">
                                 </div>
                                 <div class="col-md-8">
                                     ... ... ...
@@ -68,14 +71,8 @@
 
                     </div>
 
-
-
-
                 </div>
                 </div>
-
-
-
             </div>
         </div>
     </div>
@@ -84,12 +81,36 @@
     <div class="container mt-5 min-vh-100">
         <div class="row">
             <div class="col-12 mt-5 pt-5 text-center">
-                <h3>Non ci sono annunci da revisionare</h3>
+                <h3 class="h1 font-weight-bold text-first">Non ci sono annunci da revisionare</h3>
             </div>
         </div>
     </div>
     @endif
 
+
+    {{-- <!-- Modal -->
+  <div class="modal fade" id="deletepost" tabindex="-1" aria-labelledby="deletepostLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="deletepostLabel">Stai cancellando l'annuncio</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Sei sicuro di voler eliminare l'annuncio?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" data-dismiss="modal">Chiudi</button>
+           <form action="{{route('revisor.reject', $announcement->id)}}" method="POST">
+             @csrf   
+             <button data-toggle="modal" type="submit" data-target="#deletepost" title="Cancella il post" class="btn btn-danger">Conferma</button>
+           </form>
+        </div>
+      </div>
+    </div>
+  </div> --}}
 
 
 

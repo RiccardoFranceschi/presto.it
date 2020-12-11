@@ -70,9 +70,12 @@ class AnnouncementController extends Controller
 
         // $announcements = Announcement::search($result)->where('visible', true)->get();
 
-        $announcements = Announcement::search($result)->get();
+        $announcements = Announcement::search($result)->where('is_accepted', true)->get();
+        
+        // ->query(function ($builder) {
+        //     $builder->with(['announcements']); })
        
-        dd($announcements);
-        // return view('search.results', compact('announcements', 'result'));
+        // dd($announcements);
+        return view('search.results', compact('announcements', 'result'));
     }
 }

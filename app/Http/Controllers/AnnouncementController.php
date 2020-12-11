@@ -29,24 +29,25 @@ class AnnouncementController extends Controller
 
     public function store(AnnouncementRequest $request) {
             
+        $user = Auth::user();
         
-        // $a = new Announcement();
+        $a = new Announcement();
 
-        // $a->title = $request->input('title');
-        // $a->body = $request->input('body');
-        // $a->category_id = $request->input('category');
+        $a->title = $request->input('title');
+        $a->body = $request->input('body');
+        $a->category_id = $request->input('category');
+        $a->user_id = $user->id;
 
-        // $a->save();
+        $a->save();
        
-        $category = Category::find($request->input('category'));
+        // $category = Category::find($request->input('category'));
 
         //DOBBIAMO COLLEGARE OLTRE CHE LA CATEGORIA ANCHE L'UTENTE. 
         //-Abbiamo bisogno dell'utente
-        $user = Auth::user();
         //-Abbiamo bisogno dell'annuncio che stiamo creando
-        $announcement = $category->announcements()->create($request->validated());
+        // $announcement = $category->announcements()->create($request->validated());
         //ABBIAMO ENTRAMBE LE ENTITA', POSSIAMO FARE LA  RELAZIONE
-        $announcement->user()->associate($user);
+        // $announcement->user()->associate($user);
         
         return redirect()->back()->with('message', 'il tuo annuncio è stato creato con successo!');
 

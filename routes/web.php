@@ -2,10 +2,11 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PublicController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\RevisorController;
 use App\Http\Controllers\AnnouncementController;
-use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,3 +37,7 @@ Route::get('/revisor/home', [RevisorController::class, 'index'])->name('revisor.
 Route::post('/revisor/announcement/{id}/accept', [RevisorController::class, 'accept'])->name('revisor.accept');
 Route::post('/revisor/announcement/{id}/reject', [RevisorController::class, 'reject'])->name('revisor.reject');
 Route::get('/search/results', [AnnouncementController::class, 'search'])->name('search.results');
+
+
+Route::get('/contacts', [ContactController::class, 'contactUs'])->name('contacts');
+Route::post('/contact_save', [ContactController::class, 'contactSave'])->name('contact_save');

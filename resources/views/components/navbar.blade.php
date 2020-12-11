@@ -33,15 +33,15 @@
 
                 @if (Route::has('register'))
                     <li class="nav-item">
-                        <a class="nav-link font-weight-bold" href="{{ route('register') }}">{{ __('Register') }}</a>
+                        <a class="nav-link font-weight-bold" href="{{ route('register') }}">{{ __('Registrati') }}</a>
                     </li>
                 @endif
             @else
 
              @if(Auth::user()->is_revisor)
              <li class="nav-item">
-             <a class="nav-link" href="{{ route('revisor.home')}}">
-                Revisor home
+             <a class="nav-link font-weight-bold" href="{{ route('revisor.home')}}">
+                Da Revisionare
              <span class="badge badge-pill badge-warning">{{\App\Models\Announcement::ToBeRevisionedCount()}}</span>
             </a>
              </li>

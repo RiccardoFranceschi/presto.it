@@ -23,30 +23,34 @@ class AnnouncementController extends Controller
 
     public function create()
     {
-
-        return view('announcement.create');
+        $uniqueSecret=base_convert(sha1(uniqid(mt_rand())),16, 36);
+        return view('announcement.create', compact('uniqueSecret'));
     }
-
+    
     public function store(AnnouncementRequest $request) {
-            
         
-        // $a = new Announcement();
-
-        // $a->title = $request->input('title');
-        // $a->body = $request->input('body');
-        // $a->category_id = $request->input('category');
-
-        // $a->save();
+        $user = Auth::user();
+        
+        $a = new Announcement();
+        
+        $a->title = $request->input('title');
+        $a->body = $request->input('body');
+        $a->category_id = $request->input('category');
+        $a->user_id= $user->id;
+            
+        $a->save();
        
-        $category = Category::find($request->input('category'));
+        $uniqueSecret=$request->input('uniqueSecret');
+        dd($uniqueSecret);
+
+        // $category = Category::find($request->input('category'));
 
         //DOBBIAMO COLLEGARE OLTRE CHE LA CATEGORIA ANCHE L'UTENTE. 
         //-Abbiamo bisogno dell'utente
-        $user = Auth::user();
         //-Abbiamo bisogno dell'annuncio che stiamo creando
-        $announcement = $category->announcements()->create($request->validated());
+        // $announcement = $category->announcements()->create($request->validated());
         //ABBIAMO ENTRAMBE LE ENTITA', POSSIAMO FARE LA  RELAZIONE
-        $announcement->user()->associate($user);
+        // $announcement->user()->associate($user);
         
         return redirect()->back()->with('message', 'il tuo annuncio è stato creato con successo!');
 
@@ -70,9 +74,12 @@ class AnnouncementController extends Controller
 
         // $announcements = Announcement::search($result)->where('visible', true)->get();
 
-        $announcements = Announcement::search($result)->get();
+        $announcements = Announcement::search($result)->where('is_accepted', true)->get();
+        
+        // ->query(function ($builder) {
+        //     $builder->with(['announcements']); })
        
-        dd($announcements);
-        // return view('search.results', compact('announcements', 'result'));
+        // dd($announcements);
+        return view('search.results', compact('announcements', 'result'));
     }
 }

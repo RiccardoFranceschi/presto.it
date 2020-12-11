@@ -1,10 +1,14 @@
 <x-layout>
 
+    <div class="container my-3 py-3">
+
+    </div>
+
     <!-- Annunci più recenti -->
      <div class="container my-5 py-5 min-vh-100">
          <div class="row justify-content-center">
              <div class="col-12 col-md-8">
-             <h1 class="display-5 font-weight-bold text-center">Annunci per categoria: {{ $category->name}}</h1>
+             <h1 class="display-5 font-weight-bold text-center text-first">Annunci per categoria: {{ $category->name}}</h1>
              </div>
         </div>
         <div class="row">

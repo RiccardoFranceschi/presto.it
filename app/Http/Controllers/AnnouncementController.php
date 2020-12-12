@@ -6,11 +6,12 @@ use Validator;
 use App\Models\Category;
 use App\Models\Announcement;
 use function Ramsey\Uuid\v1;
+
+
 use Illuminate\Http\Request;
-
-
 use App\Models\AnnouncementImage;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\AnnouncementRequest;
 
@@ -23,12 +24,15 @@ class AnnouncementController extends Controller
         
     }
 
-    public function create()
+    public function create(Request $request)
     {
-        // $uniqueSecret=base_convert(sha1(uniqid(mt_rand())),16, 36);
-        // return view('announcement.create', compact('uniqueSecret'));
 
-        return view('announcement.create');
+        $uniqueSecret = $request->old(
+            'uniqueSecret',
+     base_convert(sha1(uniqid(mt_rand())),16, 36));
+        return view('announcement.create', compact('uniqueSecret'));
+
+       // return view('announcement.create');
     }
     
     public function store(AnnouncementRequest $request) {
@@ -47,15 +51,21 @@ class AnnouncementController extends Controller
         $a->save();
        
         $uniqueSecret=$request->input('uniqueSecret');
-        // dd($uniqueSecret);
+        //dd($uniqueSecret);
 
-        $images = session()->get("images.{$uniqueSecret}");
+        $images = session()->get("images.{$uniqueSecret}", []);
+        $removedImages = session()->get("removedimages.{$uniqueSecret}", []);
+
+        $images = array_diff($images, $removedImages);
+
+        //dd($images);
+    
 
         foreach ($images as $image){
             $i = new AnnouncementImage();
 
             $fileName = basename($image);
-            $newFileName = "/resources/announcement/{$a->id}/{$fileName}";
+            $newFileName = "public/announcement/{$a->id}/{$fileName}";
            Storage::move($image, $newFileName);
 
             $i->file = $newFileName;
@@ -64,7 +74,7 @@ class AnnouncementController extends Controller
             $i->save();
         }
 
-        file::deleteDirectory(storage_path("/app/public/temp/{$uniqueSecret}"));
+        File::deleteDirectory(storage_path("/app/public/temp/{$uniqueSecret}"));
         // $category = Category::find($request->input('category'));
         //DOBBIAMO COLLEGARE OLTRE CHE LA CATEGORIA ANCHE L'UTENTE. 
         //-Abbiamo bisogno dell'utente
@@ -111,6 +121,47 @@ class AnnouncementController extends Controller
         $fileName = $request->file('file')->store("public/temp/{$uniqueSecret}");
         session()->push("images.{$uniqueSecret}", $fileName);
 
-        return response()->json(session()->get("images.{$uniqueSecret}"));
-    }
+        return response()->json(
+            [
+                'id'=>$fileName
+            ]
+           
+            );}
+
+       public function removeImage(Request $request)
+            {
+                $uniqueSecret = $request->input('uniqueSecret');
+
+                $fileName = $request->input('id');
+                session()->push("removedimages.{$uniqueSecret}", $fileName);
+
+                Storage::delete($filName);
+                return response()->json('ok');
+        
+            }
+
+            public function getImages(Request $request)
+            {
+                $uniqueSecret = $request->input('uniqueSecret');
+                $images = session()->get("images.{$uniqueSecret}", []);
+                $removedImages = session()->get("removedimages.{$uniqueSecret}", []);
+                $images = array_diff($images, $removedImages);
+
+                $data = [];
+
+                foreach ($images as $image){
+                    $data[] = [
+                        'id' =>$image,
+                        'src' => storage::url($image)
+                    ];
+                }
+
+                return response()->json($data);
+
+
+
+
+
+
+            }
 }

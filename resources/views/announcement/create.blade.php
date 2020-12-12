@@ -38,11 +38,11 @@
     
     <div class="row">
       <div class="col-12 col-md-8 mx-auto">      
-        {{-- <h3>DEBUG::SECRET {{$uniqueSecret}}</h3>    --}}
+       <h3>DEBUG::SECRET {{$uniqueSecret}}</h3> 
         <form action="{{route('announcement.store')}}" method="POST">
           @csrf
 
-          {{-- <input type="hidden" name="uniqueSecret" value="{{$uniqueSecret}}"> --}}
+          <input type="hidden" name="uniqueSecret" value="{{$uniqueSecret}}">
 
           <div class="form-group">
             <label for="exampleFormControlInput1" class="font-weight-bold lead">Titolo del post</label>

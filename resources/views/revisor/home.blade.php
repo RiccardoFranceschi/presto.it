@@ -35,25 +35,19 @@
                     <div class="row">
                         <div class="col-md-2"><h3>Immagini</h3></div>
                         <div class="col-md-10">
-                            <div class="row mb-2">
-                                <div class="col-md-4">
-                                    <img src="https://picsum.photos/400/300" alt="" class="rounded">
-                                </div>
-                                <div class="col-md-8">
-                                    ... ... ...
-                                </div>
-                            </div>
 
+                            @foreach ($announcement->images as $image)
                             <div class="row mb-2">
                                 <div class="col-md-4">
-                                    <img src="https://picsum.photos/400/300" alt="" class="rounded">
+                                    <img src="{{ Storage::url($image->file) }}" alt="" class="rounded">
                                 </div>
                                 <div class="col-md-8">
-                                    ... ... ...
+                                    {{$image->id }} <br>
+                                    {{$image->file }} <br>
+                                    {{Storage::url($image->file) }} <br>
                                 </div>
-                            </div>
-                        </div>
                     </div>
+                    @endforeach
 
                     <div class="row justify-content-center mt-5">
                         <div class="col-md-6">

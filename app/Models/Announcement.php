@@ -43,7 +43,7 @@ class Announcement extends Model
 
     public function images()
     {
-        return $this->hasMany(AnnouncementImages::class);
+        return $this->hasMany(AnnouncementImage::class);
     }
  
     static public function ToBeRevisionedCount()

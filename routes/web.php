@@ -34,6 +34,12 @@ Route::get('/category/{name}/{id}/announcement', [PublicController::class, 'cate
 
 //caricamento immagini
 Route::post('/announcement/images/upload', [AnnouncementController::class, 'uploadImage'])->name('announcement.images.upload');
+//cancella immagine
+Route::delete('/announcement/images/remove', [AnnouncementController::class, 'removeImage'])->name('announcement.images.remove');
+
+Route::get('/announcement/images', [AnnouncementController::class, 'getImage'])->name('announcement.images');
+
+
 
 Route::view('/dropzone', 'dropzone');
 //revisore

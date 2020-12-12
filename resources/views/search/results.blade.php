@@ -10,7 +10,7 @@
 
         <div class="row">
             @foreach ($announcements as $announcement)
-                <div class="col-12 col-md-8 my-3">
+                <div class="col-12 col-md-6 my-3">
                     <div class="card opacity-custom shadow text-center border-0">
                         <div class="card-header bg-white border-bottom text-uppercase d-flex">
                             

@@ -23,23 +23,29 @@ class AnnouncementController extends Controller
 
     public function create()
     {
+        // $uniqueSecret=base_convert(sha1(uniqid(mt_rand())),16, 36);
+        // return view('announcement.create', compact('uniqueSecret'));
 
         return view('announcement.create');
     }
-
+    
     public function store(AnnouncementRequest $request) {
-            
+        
         $user = Auth::user();
         
         $a = new Announcement();
-
+        
         $a->title = $request->input('title');
         $a->body = $request->input('body');
+        $a->price = $request->input('price');
         $a->category_id = $request->input('category');
-        $a->user_id = $user->id;
-
+        $a->user_id= $user->id;
+            
         $a->save();
        
+        // $uniqueSecret=$request->input('uniqueSecret');
+        // dd($uniqueSecret);
+
         // $category = Category::find($request->input('category'));
 
         //DOBBIAMO COLLEGARE OLTRE CHE LA CATEGORIA ANCHE L'UTENTE. 

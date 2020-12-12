@@ -3,12 +3,21 @@
     <div class="container my-3 py-3"></div>
 
     <div class="container my-5 py-5 min-vh-100">
+
+        <div class="row my-3 py-3">
+            <div class="col-12 text-center">
+              @if (session('message'))
+              <div class="alert alert-success">
+                {{ session('message') }}
+              </div>
+              @endif
+            </div>
+          </div>
         
         <!-- Contact-->
         <section class="page-section shadow" id="contact">
            <div class="container">
-               <div class="text-center">
-                   <h2 class="section-heading text-uppercase my-3 py-3 text-first">Contatti</h2>
+               <div class="text-center pt-4">
                    <h3 class="section-subheading text-first">Contattaci per diventare revisore di annunci</h3>
                </div>
            <form class="my-5 py-5" action="{{route('contact_save')}}" method="POST">
@@ -37,7 +46,7 @@
                    </div>
                    <div class="text-center">
                        <div id="success"></div>
-                       <button class="btn btn-primary btn-xl text-uppercase" id="sendMessageButton" type="submit">Invia</button>
+                       <button class="btn btn-primary btn-xl text-uppercase" id="sendMessageButton" type="submit">Invia Richiesta</button>
                    </div>
                </form>
            </div>

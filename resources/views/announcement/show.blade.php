@@ -8,8 +8,7 @@
     </div>
     
     <div class="container-xl my-3 py-3">
-        <p class="category_style">{{$announcement->category->name}}</p>
-        <h2 class="font-weight-bold">{{$announcement->title}}</h2>
+        
         <div class="row my-5">
             
             <div class="col-12 col-md-5">
@@ -70,7 +69,8 @@
                 </div>
             </div>
             <div class="col-12 col-md-7 px-3">
-                
+                <p class="category_style">{{$announcement->category->name}}</p>
+                <h2 class="font-weight-bold">{{$announcement->title}}</h2>
                 
                 <p class="lead">{{$announcement->body}}</p>
                 

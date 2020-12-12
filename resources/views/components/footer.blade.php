@@ -5,7 +5,7 @@
         <img class="logo ml-3" src="./media//2026703-ffffff.png" alt="" />
       </div>
       <div class="col-12 col-md-4 mb-3">
-        <h3 class="text-second ml-3">Usato Point!</h3>
+        <h3 class="text-second ml-3">Presto.it</h3>
         <p class="text-second font-weight-bold pl-3 mb-0">
           Sede: 221 Baker Street, Terni, 05100 TR
         </p>

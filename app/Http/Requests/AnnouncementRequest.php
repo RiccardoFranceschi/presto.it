@@ -27,6 +27,7 @@ class AnnouncementRequest extends FormRequest
         return [
             'title' => 'required|string|min:5',
             'body' => 'required|string|min:10',
+            'price' => 'required',
         ];
     }
 

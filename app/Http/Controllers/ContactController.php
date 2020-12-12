@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Contact;
 use Illuminate\Http\Request;
+use App\Mail\ContactReceived;
+use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
@@ -12,7 +14,6 @@ class ContactController extends Controller
     }
 
     public function contactSave(Request $request) {
-        
         $contact = new Contact();
         $contact->name = $request->input('name');
         $contact->email = $request->input('email');
@@ -21,11 +22,10 @@ class ContactController extends Controller
         
         $contact->save();
 
-        
 
-        Mail::to('dentistatonino@dentista.com')->send(new ContactReceived($contact));
+        Mail::to('admin@presto.it')->send(new ContactReceived($contact));
 
-        dd('Email Inviata!');
+        return redirect()->back()->with('message', 'Email inviata con successo!');
 
     }
 }

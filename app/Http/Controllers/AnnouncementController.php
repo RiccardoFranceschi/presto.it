@@ -25,8 +25,10 @@ class AnnouncementController extends Controller
 
     public function create()
     {
-        $uniqueSecret= base_convert(sha1(uniqid(mt_rand())),16, 36);
-        return view('announcement.create', compact('uniqueSecret'));
+        // $uniqueSecret=base_convert(sha1(uniqid(mt_rand())),16, 36);
+        // return view('announcement.create', compact('uniqueSecret'));
+
+        return view('announcement.create');
     }
     
     public function store(AnnouncementRequest $request) {
@@ -37,13 +39,15 @@ class AnnouncementController extends Controller
         
         $a->title = $request->input('title');
         $a->body = $request->input('body');
+        $a->price = $request->input('price');
         $a->category_id = $request->input('category');
         //$a->image = $request->input('image');
         $a->user_id= $user->id;
             
         $a->save();
        
-        $uniqueSecret= $request->input('uniqueSecret');
+        $uniqueSecret=$request->input('uniqueSecret');
+        // dd($uniqueSecret);
 
         $images = session()->get("images.{$uniqueSecret}");
 

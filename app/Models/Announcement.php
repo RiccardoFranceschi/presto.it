@@ -13,7 +13,7 @@ class Announcement extends Model
     use HasFactory;
     use Searchable;
     
-    protected $fillable = ['title', 'body','category_id', 'user_id'];
+    protected $fillable = ['title', 'body','category_id', 'user_id', 'price'];
 
     public function toSearchableArray()
     {
@@ -22,6 +22,7 @@ class Announcement extends Model
             'id' => $this->id,
             'title' => $this->name,
             'body' => $this->body,
+            'price' => $this->price,
             'altro' => 'dobbiamo inserire qualcosa',
         ];
 

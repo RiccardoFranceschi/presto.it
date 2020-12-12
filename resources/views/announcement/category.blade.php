@@ -18,19 +18,19 @@
                 <div class="card opacity-custom text-center border-0">
                     <div class="card-header bg-white border-bottom text-uppercase d-flex">
                         
-                        <div class="p-0 mr-auto ">Lorem ipsum dolor</div>
+                        <div class="p-0 mr-auto "></div>
                         <div class="p-0 "><i class="far fa-heart fa-lg"></i></div>
                     </div>
                     <div class="col-12 p-0">
                         <div class="row">
                             <div class="col-6 border-right justify-content-center">
-                                <img src="https://picsum.photos/400/500" alt="" class=" img-fluid float-left rounded-0 p-4 ">
+                                <img src="/media/monitor-msi.jpg" alt="" class=" img-fluid float-left rounded-0 p-4 ">
                             </div>
                             <div class="col-6 ">
-                                <p class="card-text text-uppercase font-weight-bold display-custom text-truncate text-left pt-3">{{ $announcement->title }}</p>
-                                <p class="card-text text-uppercase font-weight-lighter display-price text-left ">€20</p>
+                                <p class="card-text text-uppercase font-weight-bold display-custom text-truncate text-first text-left pt-3">{{ $announcement->title }}</p>
+                                <p class="card-text text-uppercase font-weight-lighter display-price text-first text-left ">{{$announcement->price}}€</p>
                                 <p class="card-text font-weight-light text-muted text-left text-truncate pb-4 ">{{ $announcement->body }}</p>
-                                <a href="{{ route('announcement.show', compact('announcement')) }}" class=" btn btn-custom ">SCOPRI DI PIU'
+                                <a href="{{ route('announcement.show', compact('announcement')) }}" class="btn btn-primary border-0 bg-accent font-weight-bold ">SCOPRI DI PIU'
                                 </a>
                             </div>
                         </div>

@@ -29,6 +29,8 @@ class Announcement extends Model
 
         return $array;
     }
+
+    
     
     public function category(){
         return $this->belongsTo(Category::class);

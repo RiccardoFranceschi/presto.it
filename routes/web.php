@@ -32,8 +32,12 @@ Route::get('/announcement/{announcement}', [PublicController::class, 'show'])->n
 // VISUALIZZARE PAGINA CATEGORIA
 Route::get('/category/{name}/{id}/announcement', [PublicController::class, 'category'])->name('announcement.category');
 
-Route::get('/revisor/home', [RevisorController::class, 'index'])->name('revisor.home');
+//caricamento immagini
+Route::post('/announcement/images/upload', [AnnouncementController::class, 'uploadImage'])->name('announcement.images.upload');
 
+Route::view('/dropzone', 'dropzone');
+//revisore
+Route::get('/revisor/home', [RevisorController::class, 'index'])->name('revisor.home');
 Route::post('/revisor/announcement/{id}/accept', [RevisorController::class, 'accept'])->name('revisor.accept');
 Route::post('/revisor/announcement/{id}/reject', [RevisorController::class, 'reject'])->name('revisor.reject');
 Route::get('/search/results', [AnnouncementController::class, 'search'])->name('search.results');

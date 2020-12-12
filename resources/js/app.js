@@ -1,8 +1,8 @@
 require('./bootstrap');
 
-window.Dropzone= require ('dropzone');
-Dropzone.autoDiscover=false;
+window.Dropzone= require('dropzone');
+Dropzone.autoDiscover= false;
 
-require('./announcementImages');
+require('./announcementImages2');
 
 require('./script');

@@ -35,11 +35,11 @@
     
     <div class="row">
       <div class="col-12 col-md-8 mx-auto">      
-        <h3>DEBUG::SECRET {{$uniqueSecret}}</h3>   
+        <h3>DEBUG::SECRET {{ $uniqueSecret }}</h3>   
         <form action="{{route('announcement.store')}}" method="POST">
           @csrf
 
-          <input type="hidden" name="uniqueSecret" value="{{$uniqueSecret}}">
+          <input type="hidden" name="uniqueSecret" value="{{ $uniqueSecret }}">
 
           <div class="form-group">
             <label for="exampleFormControlInput1" class="font-weight-bold lead">Titolo del post</label>
@@ -81,11 +81,11 @@
         @endif
           </div>
           <div class="form-group row">
-              <label for="images" class="col-md-12 col-form label text-md-right">Immagini</label>
+              <label for="images" class="col-md-12 col-form-label text-md-right">Immagini</label>
               <div class="col-md-12">
-                <div class="dropzone" id ="drophere"></div>
+                <div class="dropzone" id="drophere"></div>
                 @error('images')
-                    <span class="invalid-feedback" role="alert"><strong>{{$message}}</strong></span>
+                    <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                 @enderror
                 </div>
           </div>

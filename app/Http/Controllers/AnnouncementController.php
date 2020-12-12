@@ -6,10 +6,12 @@ use Validator;
 use App\Models\Category;
 use App\Models\Announcement;
 use function Ramsey\Uuid\v1;
-use Illuminate\Support\Facades\Auth;
-
-
 use Illuminate\Http\Request;
+
+
+use App\Models\AnnouncementImage;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\AnnouncementRequest;
 
 class AnnouncementController extends Controller
@@ -23,7 +25,7 @@ class AnnouncementController extends Controller
 
     public function create()
     {
-        $uniqueSecret=base_convert(sha1(uniqid(mt_rand())),16, 36);
+        $uniqueSecret= base_convert(sha1(uniqid(mt_rand())),16, 36);
         return view('announcement.create', compact('uniqueSecret'));
     }
     
@@ -36,23 +38,37 @@ class AnnouncementController extends Controller
         $a->title = $request->input('title');
         $a->body = $request->input('body');
         $a->category_id = $request->input('category');
+        //$a->image = $request->input('image');
         $a->user_id= $user->id;
             
         $a->save();
        
-        $uniqueSecret=$request->input('uniqueSecret');
-        dd($uniqueSecret);
+        $uniqueSecret= $request->input('uniqueSecret');
 
+        $images = session()->get("images.{$uniqueSecret}");
+
+        foreach ($images as $image){
+            $i = new AnnouncementImage();
+
+            $fileName = basename($image);
+            $newFileName = "/resources/announcement/{$a->id}/{$fileName}";
+           Storage::move($image, $newFileName);
+
+            $i->file = $newFileName;
+            $i->announcement_id = $a->id;
+
+            $i->save();
+        }
+
+        file::deleteDirectory(storage_path("/app/public/temp/{$uniqueSecret}"));
         // $category = Category::find($request->input('category'));
-
         //DOBBIAMO COLLEGARE OLTRE CHE LA CATEGORIA ANCHE L'UTENTE. 
         //-Abbiamo bisogno dell'utente
         //-Abbiamo bisogno dell'annuncio che stiamo creando
         // $announcement = $category->announcements()->create($request->validated());
         //ABBIAMO ENTRAMBE LE ENTITA', POSSIAMO FARE LA  RELAZIONE
         // $announcement->user()->associate($user);
-        
-        return redirect()->back()->with('message', 'il tuo annuncio è stato creato con successo!');
+        return redirect('/')->with('message', 'il tuo annuncio è stato creato con successo!');
 
     }
 
@@ -81,5 +97,16 @@ class AnnouncementController extends Controller
        
         // dd($announcements);
         return view('search.results', compact('announcements', 'result'));
+    }
+
+    public function uploadImage(Request $request){
+
+//dd($request->input());
+
+        $uniqueSecret = $request->input('uniqueSecret');
+        $fileName = $request->file('file')->store("public/temp/{$uniqueSecret}");
+        session()->push("images.{$uniqueSecret}", $fileName);
+
+        return response()->json(session()->get("images.{$uniqueSecret}"));
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Http\Requests\AnnouncementRequest;
 use Illuminate\Foundation\Http\FormRequest;
 
 class AnnouncementRequest extends FormRequest

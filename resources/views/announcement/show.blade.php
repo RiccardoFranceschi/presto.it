@@ -13,7 +13,7 @@
             
             <div class="col-12 col-md-5">
                 
-                <div class="row">
+                {{-- <div class="row">
                     <div class="col">
                         <div class="row">
                             <!-- CAROSELLO GRANDE -->
@@ -66,11 +66,22 @@
                         </div>
                     </div>
                     
-                </div>
+                </div> --}}
             </div>
             <div class="col-12 col-md-7 px-3">
                 <p class="category_style">{{$announcement->category->name}}</p>
                 <h2 class="font-weight-bold">{{$announcement->title}}</h2>
+
+                <div class="card-body">
+                    <p>
+                        @foreach ($announcement->images as $image)
+                    <img src="{{ $image->getUrl(300, 150) }}" alt="" class="rounded float-right">
+                        @endforeach
+                        {{ $announcement->body }}
+                    </p>
+                </div>
+
+
                 
                 <p class="lead">{{$announcement->body}}</p>
                 

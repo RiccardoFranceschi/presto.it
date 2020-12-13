@@ -37,6 +37,9 @@ class PublicController extends Controller
       return view('announcement.category', compact('category', 'announcements'));
    }
 
-
-   
+   public function locale($locale)
+   {
+      session()->put('locale', $locale);
+      return redirect()->back();
+   }
 }

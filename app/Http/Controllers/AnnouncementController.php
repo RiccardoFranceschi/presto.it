@@ -66,7 +66,10 @@ class AnnouncementController extends Controller
 
             $fileName = basename($image);
             $newFileName = "public/announcement/{$a->id}/{$fileName}";
-           Storage::move($image, $newFileName);
+
+            Storage::move($image, $newFileName);
+
+
 
             $i->file = $newFileName;
             $i->announcement_id = $a->id;
@@ -135,7 +138,7 @@ class AnnouncementController extends Controller
                 $fileName = $request->input('id');
                 session()->push("removedimages.{$uniqueSecret}", $fileName);
 
-                Storage::delete($filName);
+                Storage::delete($fileName);
                 return response()->json('ok');
         
             }
@@ -143,8 +146,10 @@ class AnnouncementController extends Controller
             public function getImages(Request $request)
             {
                 $uniqueSecret = $request->input('uniqueSecret');
+
                 $images = session()->get("images.{$uniqueSecret}", []);
                 $removedImages = session()->get("removedimages.{$uniqueSecret}", []);
+
                 $images = array_diff($images, $removedImages);
 
                 $data = [];

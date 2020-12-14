@@ -117,9 +117,8 @@
                         <div class="row">
                             <div class="col-6 border-right justify-content-center">
                                 
-                                    @foreach ($announcement->images as $image)
-                                    <img src=" {{Storage::url($image->file) }}" alt="" class=" img-fluid float-left rounded-0 p-4 ">
-                                    @endforeach
+                                    <img src=" {{Storage::url($announcement->images->first()->file) }}" alt="" class=" img-fluid float-left rounded-0 p-4 ">
+                                
                             </div>
                             <div class="col-6 ">
                                 <p class="card-text text-uppercase font-weight-bold display-custom text-truncate text-left text-first pt-3">{{ $announcement->title }}</p>

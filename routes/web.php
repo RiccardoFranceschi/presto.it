@@ -51,3 +51,7 @@ Route::get('/search/results', [AnnouncementController::class, 'search'])->name('
 
 Route::get('/contacts', [ContactController::class, 'contactUs'])->name('contacts');
 Route::post('/contact_save', [ContactController::class, 'contactSave'])->name('contact_save');
+
+
+//rotta lingue
+Route::post('/locale/{locale}', [PublicController::class, 'locale'])->name('locale');

@@ -68,6 +68,15 @@
             @endguest
             <li class="nav-item"> <a href="{{ route('announcement.create') }}" class="nav-link btn btn-primary border-0 bg-accent font-weight-bold"><i class="fas fa-plus pr-2"></i>
                Nuovo Annuncio</a> </li>
+               <li class="nav-item">
+                @include('layouts._locale', ['lang'=> 'it', 'nation'=>'it'])
+              </li>
+               <li class="nav-item">
+                  @include('layouts._locale', ['lang'=> 'es', 'nation'=>'es'])
+                </li>
+                <li class="nav-item">
+                    @include('layouts._locale', ['lang'=> 'gb', 'nation'=>'gb'])
+                  </li>
         </ul>
         {{-- <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">

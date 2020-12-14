@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use Validator;
 use App\Models\Category;
+use App\Jobs\ResizeImage;
 use App\Models\Announcement;
+
+
 use function Ramsey\Uuid\v1;
-
-
 use Illuminate\Http\Request;
 use App\Models\AnnouncementImage;
 use Illuminate\Support\Facades\Auth;
@@ -65,11 +66,15 @@ class AnnouncementController extends Controller
             $i = new AnnouncementImage();
 
             $fileName = basename($image);
-            $newFileName = "public/announcement/{$a->id}/{$fileName}";
+            $newFileName = "/public/announcement/{$a->id}/{$fileName}";
+           Storage::move($image, $newFileName);
 
-            Storage::move($image, $newFileName);
 
-
+           dispatch(new ResizeImage(
+             $newFileName,
+                300,
+                150,
+           ));
 
             $i->file = $newFileName;
             $i->announcement_id = $a->id;
@@ -157,16 +162,12 @@ class AnnouncementController extends Controller
                 foreach ($images as $image){
                     $data[] = [
                         'id' =>$image,
-                        'src' => storage::url($image)
+                        'src' => AnnouncementImage::getUrlByFilePath($image, 120, 120)
                     ];
                 }
 
                 return response()->json($data);
-
-
-
-
-
-
             }
+
+            
 }

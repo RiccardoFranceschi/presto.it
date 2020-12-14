@@ -42,7 +42,7 @@ return [
     'conferma password' => 'conferma password',
     'non ci sono annunci da revisionare' => 'non ci sono annunci da revisionare',
     'crea il tuo annuncio!' => 'crea il tuo annuncio!',
-    'prezzo ' => 'prezzo',
+    'prezzo' => 'prezzo',
     'crea nuovo annuncio' => 'crea nuovo annuncio',
     'contattaci per diventare revisore di annunci' => 'contattaci per diventare revisore di annunci',
     'invia richiesta' => 'invia richiesta',

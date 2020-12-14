@@ -20,7 +20,7 @@
       </div>
       <div class="col-12 col-md-5 text-center mb-3">
         <p class="text-first font-weight-bold text-second">
-          Seguici sui nostri social
+          {{__('ui.seguici sui nostri social')}}
         </p>
         <a href="" class="mr-4 ml-5">
           <i class="fab fa-facebook text-first fa-2x text-second"></i>

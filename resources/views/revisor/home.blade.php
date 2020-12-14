@@ -52,13 +52,13 @@
                                     <div class="col-md-6">
                                         <form action="{{route('revisor.reject', $announcement->id)}}" method="POST">
                                             @csrf
-                                            <button type="submit" class="btn btn-danger">Rifiuta</button>
+                                            <button type="submit" class="btn btn-danger">{{__('ui.rifiuta')}}</button>
                                         </form>
                                     </div>
                                     <div class="col-md-6 text-right">
                                         <form action="{{route('revisor.accept', $announcement->id)}}" method="POST">
                                             @csrf
-                                            <button type="submit" class="btn btn-success">Accetta</button>
+                                            <button type="submit" class="btn btn-success">{{__('ui.accetta')}}</button>
                                         </form>
                                     </div>
                                     

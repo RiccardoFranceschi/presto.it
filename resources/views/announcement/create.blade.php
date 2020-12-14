@@ -38,14 +38,14 @@
     
     <div class="row">
       <div class="col-12 col-md-8 mx-auto">      
-       <h3>DEBUG::SECRET {{$uniqueSecret}}</h3> 
+       {{-- <h3>DEBUG::SECRET {{$uniqueSecret}}</h3>  --}}
         <form action="{{route('announcement.store')}}" method="POST">
           @csrf
 
           <input type="hidden" name="uniqueSecret" value="{{$uniqueSecret}}">
 
           <div class="form-group">
-            <label for="exampleFormControlInput1" class="font-weight-bold lead">Titolo del post</label>
+            <label for="exampleFormControlInput1" class="font-weight-bold lead">Titolo</label>
             <input type="text" class="form-control" name="title" id="exampleFormControlInput1" placeholder="Titolo" value="{{old('title')}}">
             @if ($errors->any())
         <div class="alert alert-danger">
@@ -58,7 +58,7 @@
         @endif
           </div>
           <div class="form-group">
-            <label for="category" class="font-weight-bold lead">Scegli la categoria</label>
+            <label for="category" class="font-weight-bold lead">{{__('ui.categorie')}}</label>
              <select class="form-control" name="category" id="category">
               @foreach ($categories as $category)
               <option value="{{$category->id}}"
@@ -71,7 +71,7 @@
             </select>
           </div>
            <div class="form-group">
-            <label for="exampleFormControlTextarea1" class="font-weight-bold lead">Testo del post</label>
+            <label for="exampleFormControlTextarea1" class="font-weight-bold lead">Descrizione</label>
             <textarea class="form-control" name="body" id="exampleFormControlTextarea1" rows="3" value="{{old('body')}}"></textarea>
             @if ($errors->any())
         <div class="alert alert-danger">

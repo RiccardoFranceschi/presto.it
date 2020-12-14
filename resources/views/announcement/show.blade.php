@@ -75,7 +75,7 @@
                 <div class="card-body">
                     <p>
                         @foreach ($announcement->images as $image)
-                    <img src="{{ $image->getUrl(300, 150) }}" alt="" class="rounded float-right">
+                    <img src="{{ $image->getUrl(300, 150) }}" alt="" class="rounded float-left">
                         @endforeach
                         {{ $announcement->body }}
                     </p>

@@ -38,7 +38,7 @@
                         <input type="text" class="form-control" name="result" placeholder="es. Notebook, Smart Tv ecc." id="exampleInputEmail1" aria-describedby="emailHelp" />
                     </div>
                     <div class="col-12 col-md-4">
-                        <button type="submit" class="nav-link btn btn-primary border-0 bg-accent font-weight-bold w-100">Cerca</button>  
+                        <button type="submit" class="nav-link btn btn-primary border-0 bg-accent font-weight-bold w-100">{{__('ui.cerca')}}</button>  
                     </form>  
                     </div> 
                 </div>
@@ -132,7 +132,7 @@
                     </div>
                     <div class="card-footer d-flex bg-white d-flex">
                         <div class="p-0 mr-auto ">
-                            <span class="font-weight-bold">Category: <a href="{{ route('announcement.category', [$announcement->category->name, $announcement->category->id])}}" class="text-decoration-none">{{ $announcement->category->name }}</a></span>
+                            <span class="font-weight-bold">{{__('ui.categorie')}}: <a href="{{ route('announcement.category', [$announcement->category->name, $announcement->category->id])}}" class="text-decoration-none">{{ $announcement->category->name }}</a></span>
                         </div>
                         <div class="p-0">
                             <i>{{ $announcement->created_at->format('d/m/Y') }} - {{ $announcement->user->name }}</i>

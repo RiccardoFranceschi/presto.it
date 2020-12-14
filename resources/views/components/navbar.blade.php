@@ -13,7 +13,7 @@
             <li class="nav-item dropdown">
                 <a href="" id="categoriesDropdown" class="nav-link dropdown-toggle font-weight-bold " role="buttom"
                     data-toggle="dropdown">
-                    Categorie <span class="caret"></span>
+                    {{__('ui.categorie')}} <span class="caret"></span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right bg-first" aria-labelledby="categoriesDropdown">
                     @foreach ($categories as $category)
@@ -41,7 +41,7 @@
              @if(Auth::user()->is_revisor)
              <li class="nav-item">
              <a class="nav-link font-weight-bold" href="{{ route('revisor.home')}}">
-                Da Revisionare
+                {{__('ui.da revisionare')}}
              <span class="badge badge-pill badge-warning">{{\App\Models\Announcement::ToBeRevisionedCount()}}</span>
             </a>
              </li>

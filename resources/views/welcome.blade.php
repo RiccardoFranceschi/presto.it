@@ -30,16 +30,16 @@
     <!-- Header-->
     <header class="header d-flex align-items-center">
         <div class="container">
-        <h1 class="display-4 text-first font-weight-bold text-center">{{ __('ui.welcome') }}</h1>
+            <h1 class="display-4 text-first font-weight-bold text-center">{{ __('ui.welcome') }}</h1>
             <div class="row mt-5 align-items-center">
                 <div class="col-md-8 offset-md-2 bg-first col-offset-2 bg_light px-3 py-4 d-flex rounded shadow align-items-center flex-wrap">
                     <div class="col-12 col-md-8">
-                    <form action="{{route('search.results')}}" method="GET">
-                        <input type="text" class="form-control" name="result" placeholder="es. Notebook, Smart Tv ecc." id="exampleInputEmail1" aria-describedby="emailHelp" />
-                    </div>
-                    <div class="col-12 col-md-4">
-                        <button type="submit" class="nav-link btn btn-primary border-0 bg-accent font-weight-bold w-100">Cerca</button>  
-                    </form>  
+                        <form action="{{route('search.results')}}" method="GET">
+                            <input type="text" class="form-control" name="result" placeholder="es. Notebook, Smart Tv ecc." id="exampleInputEmail1" aria-describedby="emailHelp" />
+                        </div>
+                        <div class="col-12 col-md-4">
+                            <button type="submit" class="nav-link btn btn-primary border-0 bg-accent font-weight-bold w-100">{{__('ui.cerca')}}</button>  
+                        </form>  
                     </div> 
                 </div>
             </div>
@@ -62,38 +62,38 @@
             
         </div></div>
     </div>
-
-
+    
+    
     <!-- affidabilità sito -->
-  <div class="container my-5 py-5">
-    <div class="row">
-      <div class="col-12 col-lg-4 mb-3">
-        <div class="card shadow border-0 text-center p-4">
-          <i class="fas fa-user fa-3x mx-auto text-accent"></i>
-          <h3 class="p mt-5 mt-3 text-first font-weight-bold">Garantito</h3>
-          <p>
-            Garantiamo l'integrità e la funzionalità dei prodotti rivenduti.
-          </p>
+    <div class="container my-5 py-5">
+        <div class="row">
+            <div class="col-12 col-lg-4 mb-3">
+                <div class="card shadow border-0 text-center p-4">
+                    <i class="fas fa-user fa-3x mx-auto text-accent"></i>
+                    <h3 class="p mt-5 mt-3 text-first font-weight-bold">Garantito</h3>
+                    <p>
+                        Garantiamo l'integrità e la funzionalità dei prodotti rivenduti.
+                    </p>
+                </div>
+            </div>
+            <div class="col-12 col-lg-4 mb-3">
+                <div class="card shadow border-0 text-center p-4">
+                    <i class="fas fa-dollar-sign fa-3x mx-auto text-accent"></i>
+                    <h3 class="p mt-5 mt-3 text-first font-weight-bold">Sicuro</h3>
+                    <p>
+                        Pagamenti sicuri con modalità Paypal, Bonifico e Contrassegno.
+                    </p>
+                </div>
+            </div>
+            <div class="col-12 col-lg-4 mb-3">
+                <div class="card shadow border-0 text-center p-4">
+                    <i class="fas fa-truck fa-3x mx-auto text-accent"></i>
+                    <h3 class="p mt-5 mt-3 text-first font-weight-bold">Veloce</h3>
+                    <p>Spedizioni veloci in tutta Italia con consegna in 24/48 ore.</p>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="col-12 col-lg-4 mb-3">
-        <div class="card shadow border-0 text-center p-4">
-          <i class="fas fa-dollar-sign fa-3x mx-auto text-accent"></i>
-          <h3 class="p mt-5 mt-3 text-first font-weight-bold">Sicuro</h3>
-          <p>
-            Pagamenti sicuri con modalità Paypal, Bonifico e Contrassegno.
-          </p>
-        </div>
-      </div>
-      <div class="col-12 col-lg-4 mb-3">
-        <div class="card shadow border-0 text-center p-4">
-          <i class="fas fa-truck fa-3x mx-auto text-accent"></i>
-          <h3 class="p mt-5 mt-3 text-first font-weight-bold">Veloce</h3>
-          <p>Spedizioni veloci in tutta Italia con consegna in 24/48 ore.</p>
-        </div>
-      </div>
     </div>
-  </div>
     
     
     <!-- Annunci più recenti -->
@@ -117,9 +117,9 @@
                         <div class="row">
                             <div class="col-6 border-right justify-content-center">
                                 
-                                    @foreach ($announcement->images as $image)
-                                    <img src=" {{Storage::url($image->file) }}" alt="" class=" img-fluid float-left rounded-0 p-4 ">
-                                    @endforeach
+                                
+                                <img src=" {{Storage::url($announcement->images->first()->file) }}" alt="" class=" img-fluid float-left rounded-0 p-4 ">
+                                
                             </div>
                             <div class="col-6 ">
                                 <p class="card-text text-uppercase font-weight-bold display-custom text-truncate text-left text-first pt-3">{{ $announcement->title }}</p>
@@ -132,7 +132,7 @@
                     </div>
                     <div class="card-footer d-flex bg-white d-flex">
                         <div class="p-0 mr-auto ">
-                            <span class="font-weight-bold">Category: <a href="{{ route('announcement.category', [$announcement->category->name, $announcement->category->id])}}" class="text-decoration-none">{{ $announcement->category->name }}</a></span>
+                            <span class="font-weight-bold">{{__('ui.categorie')}}: <a href="{{ route('announcement.category', [$announcement->category->name, $announcement->category->id])}}" class="text-decoration-none">{{ $announcement->category->name }}</a></span>
                         </div>
                         <div class="p-0">
                             <i>{{ $announcement->created_at->format('d/m/Y') }} - {{ $announcement->user->name }}</i>

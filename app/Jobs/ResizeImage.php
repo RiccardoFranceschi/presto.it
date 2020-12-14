@@ -14,7 +14,7 @@ use Illuminate\Contracts\Queue\ShouldBeUnique;
 class ResizeImage implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
-        private $path, $filName, $w, $h;
+        private $path, $fileName, $w, $h;
 
     /**
      * Create a new job instance.
@@ -37,11 +37,11 @@ class ResizeImage implements ShouldQueue
      */
     public function handle()
     {
-        $this->w = $w;
-        $this->h = $h;
+        $w = $this->w;
+        $h = $this->h;
         $srcPath = storage_path() . '/app/' . $this->path . '/' . $this->fileName;
         
-        $destPath = storage_path() . '/app/' . $this->path . '/crop{$w}x{$h}_' . $this->fileName;
+        $destPath = storage_path() . '/app/' . $this->path . "/crop{$w}x{$h}_" . $this->fileName;
 
         Image::load($srcPath)
         ->crop(Manipulations::CROP_CENTER, $w, $h)

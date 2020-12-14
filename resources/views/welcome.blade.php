@@ -30,7 +30,7 @@
     <!-- Header-->
     <header class="header d-flex align-items-center">
         <div class="container">
-            <h1 class="display-4 text-first font-weight-bold text-center">Presto.it</h1>
+        <h1 class="display-4 text-first font-weight-bold text-center">{{ __('ui.welcome') }}</h1>
             <div class="row mt-5 align-items-center">
                 <div class="col-md-8 offset-md-2 bg-first col-offset-2 bg_light px-3 py-4 d-flex rounded shadow align-items-center flex-wrap">
                     <div class="col-12 col-md-8">

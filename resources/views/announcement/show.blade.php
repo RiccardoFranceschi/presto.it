@@ -18,56 +18,56 @@
                         <div class="row">
                             <!-- CAROSELLO GRANDE -->
                             <div class="col-12">
-                                <div class="fade">
+                                <div class="bigCarousel">
+                                    @foreach ($announcement->images as $image)
                                     <div class="px-2">
-                                        @foreach ($announcement->images as $image)
-                                        <img src="{{ $image->getUrl(300, 150) }}" alt="" class="rounded float-left">
-                                        @endforeach
+                                        <img src="{{ $image->getUrl(300, 150) }}" alt="" class="mx-auto d-block img-fluid">
                                     </div>
+                                    @endforeach
                                     {{-- <div class="px-2">
                                         @foreach ($announcement->images as $image)
-                                        <img src="{{ $image->getUrl(300, 150) }}" alt="" class="rounded float-left">
+                                        <img src="{{ $image->getUrl(300, 150) }}" alt="" class="mx-auto d-block img-fluid">
                                         @endforeach
                                     </div>
                                     <div class="px-2">
                                         @foreach ($announcement->images as $image)
-                                        <img src="{{ $image->getUrl(300, 150) }}" alt="" class="rounded float-left">
+                                        <img src="{{ $image->getUrl(300, 150) }}" alt="" class="mx-auto d-block img-fluid">
                                         @endforeach
                                     </div>
                                     <div class="px-2">
                                         @foreach ($announcement->images as $image)
-                                        <img src="{{ $image->getUrl(300, 150) }}" alt="" class="rounded float-left">
+                                        <img src="{{ $image->getUrl(300, 150) }}" alt="" class="mx-auto d-block img-fluid">
                                         @endforeach
                                     </div> --}}
                                 </div>
                             </div>
                             
-                            {{-- <!-- CAROSELLO PICCOLO -->
+                            <!-- CAROSELLO PICCOLO -->
                             <div class="col-12">
                                 <div class="smallCarousel">
+                                    @foreach ($announcement->images as $image)
                                     <div class="px-2">
+                                        <img src="{{ $image->getUrl(300, 150) }}" alt="" class="mx-auto d-block img-fluid">
+                                    </div>
+                                    @endforeach
+                                    {{-- <div class="px-2">
                                         @foreach ($announcement->images as $image)
-                                        <img src="{{ $image->getUrl(300, 150) }}" alt="" class="rounded float-left">
+                                        <img src="{{ $image->getUrl(300, 150) }}" alt="" class="mx-auto d-block img-fluid">
                                         @endforeach
                                     </div>
                                     <div class="px-2">
                                         @foreach ($announcement->images as $image)
-                                        <img src="{{ $image->getUrl(300, 150) }}" alt="" class="rounded float-left">
+                                        <img src="{{ $image->getUrl(300, 150) }}" alt="" class="mx-auto d-block img-fluid">
                                         @endforeach
                                     </div>
                                     <div class="px-2">
                                         @foreach ($announcement->images as $image)
-                                        <img src="{{ $image->getUrl(300, 150) }}" alt="" class="rounded float-left">
+                                        <img src="{{ $image->getUrl(300, 150) }}" alt="" class="mx-auto d-block img-fluid">
                                         @endforeach
                                     </div>
-                                    <div class="px-2">
-                                        @foreach ($announcement->images as $image)
-                                        <img src="{{ $image->getUrl(300, 150) }}" alt="" class="rounded float-left">
-                                        @endforeach
-                                    </div>
-                                    
+                                     --}}
                                 </div>
-                            </div> --}}
+                            </div>
                         </div>
                     </div>
                     
@@ -94,6 +94,13 @@
                     
                 </div>
             </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <h3>Annunci in evidenza</h3>
+                    
+                </div>
+            </div>
         </div>
         
         <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
@@ -105,32 +112,32 @@
         
         <script>
             
-            // $('.bigCarousel').slick({
-            //     slidesToShow: 1,
-            //     slidesToScroll: 1,
-            //     arrows: false,
-            //     dots: false,
-            //     fade: true,
-            //     asNavFor: '.smallCarousel'
-            // });
-            // $('.smallCarousel').slick({
-            //     slidesToShow: 3,
-            //     slidesToScroll: 1,
-            //     asNavFor: '.bigCarousel',
-            //     dots: true,
-            //     arrows: false,
-            //     centerMode: true,
-            //     focusOnSelect: true
-            // });
-            
-            
-            $('.fade').slick({
-                dots: true,
-                infinite: true,
-                speed: 500,
+            $('.bigCarousel').slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                arrows: false,
+                dots: false,
                 fade: true,
-                cssEase: 'linear'
+                asNavFor: '.smallCarousel'
             });
+            $('.smallCarousel').slick({
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                asNavFor: '.bigCarousel',
+                dots: true,
+                arrows: false,
+                centerMode: true,
+                focusOnSelect: true
+            });
+            
+            
+            // $('.fade').slick({
+            //     dots: true,
+            //     infinite: true,
+            //     speed: 500,
+            //     fade: true,
+            //     cssEase: 'linear'
+            // });
         </script>
     </x-layout>
     

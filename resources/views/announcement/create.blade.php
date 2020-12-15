@@ -31,7 +31,7 @@
     
     <div class="row mb-5">
       <div class="col-12">
-        <h2 class="text-center font-weight-bold">Crea il tuo annuncio!</h2>
+        <h2 class="text-center font-weight-bold">{{__('ui.crea il tuo annuncio!')}}</h2>
       </div>
     </div>
     
@@ -45,7 +45,7 @@
           <input type="hidden" name="uniqueSecret" value="{{$uniqueSecret}}">
 
           <div class="form-group">
-            <label for="exampleFormControlInput1" class="font-weight-bold lead">Titolo</label>
+            <label for="exampleFormControlInput1" class="font-weight-bold lead">{{__('ui.annuncio')}}</label>
             <input type="text" class="form-control" name="title" id="exampleFormControlInput1" placeholder="Titolo" value="{{old('title')}}">
             @if ($errors->any())
         <div class="alert alert-danger">
@@ -60,18 +60,41 @@
           <div class="form-group">
             <label for="category" class="font-weight-bold lead">{{__('ui.categorie')}}</label>
              <select class="form-control" name="category" id="category">
-              @foreach ($categories as $category)
-              <option value="{{$category->id}}"
-                {{old('category') == $category->id ? 'selected' : ''}}
-                > {{$category->name}}
-              </option> 
-              @endforeach 
+          
+                @switch(App::getLocale())
+                    @case('it')
+                    @foreach ($categories as $category)
+                    <option value="{{$category->id}}"
+                      {{old('category') == $category->id ? 'selected' : ''}}
+                      > {{$category->name_it}}
+                    </option> 
+                    @endforeach 
+                    @break
+                    @case('es')
+                    @foreach ($categories as $category)
+                    <option value="{{$category->id}}"
+                      {{old('category') == $category->id ? 'selected' : ''}}
+                      > {{$category->name_es}}
+                    </option> 
+                    @endforeach 
+                    @break
+                    @case('gb')
+                    @foreach ($categories as $category)
+                    <option value="{{$category->id}}"
+                      {{old('category') == $category->id ? 'selected' : ''}}
+                      > {{$category->name_en}}
+                    </option> 
+                    @endforeach 
+                    @break
+                @endswitch
+                
+            </div>
 
               
             </select>
           </div>
            <div class="form-group">
-            <label for="exampleFormControlTextarea1" class="font-weight-bold lead">Descrizione</label>
+            <label for="exampleFormControlTextarea1" class="font-weight-bold lead">{{__('ui.descrizione')}}</label>
             <textarea class="form-control" name="body" id="exampleFormControlTextarea1" rows="3" value="{{old('body')}}"></textarea>
             @if ($errors->any())
         <div class="alert alert-danger">
@@ -84,7 +107,7 @@
         @endif
           </div>
           <div class="form-group">
-            <label for="exampleFormControlInput1" class="font-weight-bold lead">Prezzo</label>
+            <label for="exampleFormControlInput1" class="font-weight-bold lead">{{__('ui.prezzo')}}</label>
             <div class="input-group mb-2 mr-sm-2">
               <div class="input-group-prepend">
                 <div class="input-group-text">€</div>
@@ -93,7 +116,7 @@
             </div>
           </div>
           <div class="form-group row">
-              <label for="images" class="col-md-12 col-form-label text-md-right">Immagini</label>
+              <label for="images" class="col-md-12 col-form-label text-md-right">{{__('ui.immagini')}}</label>
               <div class="col-md-12">
                 <div class="dropzone" id="drophere"></div>
                 @error('images')
@@ -101,7 +124,7 @@
                 @enderror
                 </div>
           </div>
-          <button class="btn btn-primary bg-first btn-lg w-100 font-weight-bold lead">Crea nuovo post</button>
+          <button class="btn btn-primary bg-first btn-lg w-100 font-weight-bold lead">{{__('ui.crea nuovo annuncio')}}</button>
         </form>
       </div>
     </div>

@@ -8,10 +8,10 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">Annuncio # {{ $announcement->id }}</div>
+                    <div class="card-header">{{__('ui.annuncio')}} # {{ $announcement->id }}</div>
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-md-2"><h3>Utente</h3></div>
+                            <div class="col-md-2"><h3>{{__('ui.utente')}}</h3></div>
                             <div class="col-md-10">
                                 # {{ $announcement->user->id }},
                                 {{ $announcement->user->name }},
@@ -22,18 +22,18 @@
                         <hr>
                         
                         <div class="row">
-                            <div class="col-md-2"><h3>Titolo</h3></div>
+                            <div class="col-md-2"><h3>{{__('ui.titolo')}}</h3></div>
                             <div class="col-md-10">{{ $announcement->title }}</div>
                         </div>
                         
                         <hr>
                         <div class="row">
-                            <div class="col-md-2"><h3>Descrizione</h3></div>
+                            <div class="col-md-2"><h3>{{__('ui.descrizione')}}</h3></div>
                             <div class="col-md-10">{{ $announcement->body }}</div>
                         </div>
                         
                         <div class="row">
-                            <div class="col-md-2"><h3>Immagini</h3></div>
+                            <div class="col-md-2"><h3>{{__('ui.immagini')}}</h3></div>
                             <div class="col-md-10">
                                 @foreach ($announcement->images as $image)
                                 <div class="row mb-2">
@@ -75,7 +75,7 @@
         <div class="container mt-5 min-vh-100">
             <div class="row">
                 <div class="col-12 mt-5 pt-5 text-center">
-                    <h3 class="h1 font-weight-bold text-first">Non ci sono annunci da revisionare</h3>
+                    <h3 class="h1 font-weight-bold text-first">{{__('ui.non ci sono annunci da revisionare')}}</h3>
                 </div>
             </div>
         </div>

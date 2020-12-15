@@ -16,17 +16,29 @@ class CreateCategoriesTable extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
+            $table->string('name_it');
+            $table->string('name_es');
+            $table->string('name_en');
             $table->timestamps();
         });
 
         $categories = [
-            'Motori', 'Informatica', 'Libri', 'Giochi', 'Sport', 'Telefoni', 
-            'Arredamento', 'Elettrodomestici', 'Immobili', 'Televisioni',  
+            ['Motori' , 'Motores' , 'Motors'],
+            ['Informatica' , 'Informatica' , 'Informatics'],
+            ['Libri' , 'Libros' , 'Books'],
+            ['Giochi' , 'Juegos' , 'Games'],
+            ['Sport' , 'Deporte' , 'Sport'],
+            ['Telefoni' , 'Telefonos' , 'Phone'],
+            ['Arredamento' , 'Decoraciones' , 'Decore'],
+            ['Elettrodomestici' , 'Electrodomesticos' , 'Household Appliances'],
+            ['Immobili' , 'Inmuebles' , 'Properties'],
+            ['Televisioni' , 'TV' , 'TV'], 
         ];
         foreach($categories as $category){
             $i = new Category();          
-            $i->name = $category;
+            $i->name_it = $category[0];
+            $i->name_es = $category[1];
+            $i->name_en = $category[2];
             $i->save();
         }
 

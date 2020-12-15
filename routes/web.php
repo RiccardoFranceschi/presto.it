@@ -30,7 +30,9 @@ Route::post('/announcement/store' , [AnnouncementController::class, 'store'])->n
 // VISUALIZZARE IL SINGOLO ANNUNCIO
 Route::get('/announcement/{announcement}', [PublicController::class, 'show'])->name('announcement.show');
 // VISUALIZZARE PAGINA CATEGORIA
-Route::get('/category/{name}/{id}/announcement', [PublicController::class, 'category'])->name('announcement.category');
+Route::get('/category/{name_it}/{id}/announcement', [PublicController::class, 'category'])->name('announcement.category');
+Route::get('/category/{name_es}/{id}/announcement', [PublicController::class, 'category'])->name('announcement.category');
+Route::get('/category/{name_en}/{id}/announcement', [PublicController::class, 'category'])->name('announcement.category');
 
 //caricamento immagini
 Route::post('/announcement/images/upload', [AnnouncementController::class, 'uploadImage'])->name('announcement.images.upload');

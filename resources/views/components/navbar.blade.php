@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-first fixed-top">
-<a class="navbar-brand" href="{{route('welcome')}}"><img class="logo ml-3" src="media/logo-rocket.png" alt="" /></a>
+<a class="navbar-brand" href="{{route('welcome')}}"><img class="logo ml-3" src="/media/logo-rocket.png" alt="" /></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"><i class="fas fa-bars" style="color: #fff; font-size: 26px"></i></span>
@@ -16,12 +16,34 @@
                     {{__('ui.categorie')}} <span class="caret"></span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right bg-first" aria-labelledby="categoriesDropdown">
-                    @foreach ($categories as $category)
-                        <a href="{{ route('announcement.category', [$category->name, $category->id]) }}"
-                            class="nav-link font-weight-bold">
-                            {{ $category->name }}
-                        </a>
-                    @endforeach
+                    
+                    @switch(App::getLocale())
+                        @case('it')
+                            @foreach ($categories as $category)
+                                <a href="{{ route('announcement.category', [$category->name_it, $category->id]) }}"
+                                    class="nav-link font-weight-bold">
+                                    {{ $category->name_it }}
+                                </a>
+                            @endforeach
+                        @break
+                        @case('es')
+                            @foreach ($categories as $category)
+                                <a href="{{ route('announcement.category', [$category->name_es, $category->id]) }}"
+                                    class="nav-link font-weight-bold">
+                                    {{ $category->name_es }}
+                                </a>
+                            @endforeach
+                        @break
+                        @case('en')
+                            @foreach ($categories as $category)
+                                <a href="{{ route('announcement.category', [$category->name_en, $category->id]) }}"
+                                    class="nav-link font-weight-bold">
+                                    {{ $category->name_en }}
+                                </a>
+                            @endforeach
+                        @break
+                    @endswitch
+                    
                 </div>
             </li>
             @guest
@@ -67,7 +89,7 @@
                 </li>
             @endguest
             <li class="nav-item"> <a href="{{ route('announcement.create') }}" class="nav-link btn btn-primary border-0 bg-accent font-weight-bold"><i class="fas fa-plus pr-2"></i>
-               Nuovo Annuncio</a> </li>
+               {{__('ui.nuovo annuncio')}}</a> </li>
                <li class="nav-item">
                 @include('layouts._locale', ['lang'=> 'it', 'nation'=>'it'])
               </li>

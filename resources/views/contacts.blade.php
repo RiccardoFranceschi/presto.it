@@ -18,7 +18,7 @@
         <section class="page-section shadow" id="contact">
            <div class="container">
                <div class="text-center pt-4">
-                   <h3 class="section-subheading text-first">Contattaci per diventare revisore di annunci</h3>
+                   <h3 class="section-subheading text-first">{{__('ui.contattaci per diventare revisore di annunci')}}</h3>
                </div>
            <form class="my-5 py-5" action="{{route('contact_save')}}" method="POST">
                @csrf
@@ -46,7 +46,7 @@
                    </div>
                    <div class="text-center">
                        <div id="success"></div>
-                       <button class="btn btn-primary btn-xl text-uppercase" id="sendMessageButton" type="submit">Invia Richiesta</button>
+                       <button class="btn btn-primary btn-xl text-uppercase" id="sendMessageButton" type="submit">{{__('ui.invia richiesta')}}</button>
                    </div>
                </form>
            </div>

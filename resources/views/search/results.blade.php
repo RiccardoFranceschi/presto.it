@@ -26,7 +26,7 @@
                                     <p class="card-text text-uppercase font-weight-bold display-custom text-truncate text-left pt-3">{{ $announcement->title }}</p>
                                     <p class="card-text text-uppercase font-weight-lighter display-price text-left ">€20</p>
                                     <p class="card-text font-weight-light text-muted text-left text-truncate pb-4 ">{{ $announcement->body }}</p>
-                                    <a href="{{ route('announcement.show', compact('announcement')) }}" class=" btn btn-custom ">SCOPRI DI PIU'
+                                    <a href="{{ route('announcement.show', compact('announcement')) }}" class=" btn btn-custom ">{{__('ui.scopri di piu')}}'
                                     </a>
                                 </div>
                             </div>

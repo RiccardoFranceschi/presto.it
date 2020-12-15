@@ -5,11 +5,11 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Announcement;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 
 class PublicController extends Controller
 {
    public  function index() {
-        
         $announcements = Announcement::where('is_accepted', true)
         ->orderBy('created_at', 'desc')
         ->take(6)

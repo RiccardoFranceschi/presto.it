@@ -37,7 +37,7 @@
                     </div>
                         <div class="card-footer d-flex bg-white d-flex">
                             <div class="p-0 mr-auto ">
-                            <span class="font-weight-bold">Category: <a href="{{ route('announcement.category', [$announcement->category->name, $announcement->category->id]) }}" class="text-decoration-none">{{ $announcement->category->name }}</a></span>
+                            <span class="font-weight-bold">{{'ui.categorie'}}: <a href="{{ route('announcement.category', [$announcement->category->name_it, $announcement->category->id]) }}" class="text-decoration-none">{{ $announcement->category->name }}</a></span>
                         </div>
                         <div class="p-0">
                             <i>{{ $announcement->created_at->format('d/m/Y') }} - {{ $announcement->user->name }}</i>

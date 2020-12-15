@@ -9,7 +9,7 @@ return [
     'registrati' => 'Register',
     'nuovo annuncio' => 'New announcement',
     'cerca' => 'Search',
-    'clicca qui' => 'click here',
+    'clicca qui' => 'Click here',
     'scopri di piu\'' => 'Read more',
     'garantito' => 'Guaranteed',
     'Garantiamo l\'integrità e la funzionalità dei prodotti rivenduti' => 'We guarantee the integrity and functionality of the resold products.',
@@ -42,9 +42,9 @@ return [
     'conferma password' => 'confirm password',
     'non ci sono annunci da revisionare' => 'there are no annoucements to be revised',
     'crea il tuo annuncio!' => 'create new announcement',
-    'prezzo ' => 'price',
+    'prezzo' => 'price',
     'crea nuovo annuncio' => 'Post new announcement',
     'contattaci per diventare revisore di annunci' => 'Contact us to become an ad reviewer',
-    'invia richiesta ' => 'send inquiry',
+    'invia richiesta ' => 'Send inquiry',
     
 ];

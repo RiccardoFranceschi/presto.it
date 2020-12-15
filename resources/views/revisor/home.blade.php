@@ -40,11 +40,11 @@
                                     <div class="col-md-4">
                                         <img src="{{ $image->getUrl(300, 150) }}" alt="" class="rounded">
                                     </div>
-                                    <div class="col-md-8">
+                                    {{-- <div class="col-md-8">
                                         {{$image->id }} <br>
                                         {{$image->file }} <br>
                                         {{Storage::url($image->file) }} <br>
-                                    </div>
+                                    </div> --}}
                                 </div>
                                 @endforeach
                                 

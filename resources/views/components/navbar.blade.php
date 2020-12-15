@@ -34,7 +34,7 @@
                                 </a>
                             @endforeach
                         @break
-                        @case('en')
+                        @case('gb')
                             @foreach ($categories as $category)
                                 <a href="{{ route('announcement.category', [$category->name_en, $category->id]) }}"
                                     class="nav-link font-weight-bold">

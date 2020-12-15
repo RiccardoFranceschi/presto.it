@@ -40,11 +40,16 @@
                                     <div class="col-md-4">
                                         <img src="{{ $image->getUrl(300, 150) }}" alt="" class="rounded">
                                     </div>
-                                    {{-- <div class="col-md-8">
-                                         {{$image->id }} <br>
+                                    <div class="col-md-8">
+                                        Adult: {{ $image->adult}} <br>
+                                        spoof: {{ $image->spoof}} <br>
+                                        medical: {{ $image->medical}} <br>
+                                        violence: {{ $image->violence}} <br>
+                                        racy: {{ $image->racy}} <br>
+                                        {{-- {{$image->id }} <br>
                                         {{$image->file }} <br>
-                                        {{Storage::url($image->file) }} <br>
-                                    </div>  --}}
+                                        {{Storage::url($image->file) }} <br> --}}
+                                    </div>
                                 </div>
                                 @endforeach
                                 

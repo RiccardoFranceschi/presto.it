@@ -33,7 +33,6 @@ Route::get('/announcement/{announcement}', [PublicController::class, 'show'])->n
 Route::get('/category/{name_it}/{id}/announcement', [PublicController::class, 'category'])->name('announcement.category');
 Route::get('/category/{name_es}/{id}/announcement', [PublicController::class, 'category'])->name('announcement.category');
 Route::get('/category/{name_en}/{id}/announcement', [PublicController::class, 'category'])->name('announcement.category');
-
 //caricamento immagini
 Route::post('/announcement/images/upload', [AnnouncementController::class, 'uploadImage'])->name('announcement.images.upload');
 //cancella immagine

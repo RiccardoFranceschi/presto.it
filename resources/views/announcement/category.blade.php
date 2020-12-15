@@ -8,7 +8,23 @@
      <div class="container my-5 py-5 min-vh-100">
          <div class="row justify-content-center">
              <div class="col-12 col-md-8">
-             <h1 class="display-5 font-weight-bold text-center text-first">Annunci per categoria: {{ $category->name}}</h1>
+             <h1 class="display-5 font-weight-bold text-center text-first">{{__('ui.annunci per categorie')}} {{ $category->name}}
+            
+              @if (App::getLocale()=='it')
+              {{$category->name_it}}
+
+              @elseif (App::getLocale()=='es')
+              {{$category->name_es}}
+
+              @elseif (App::getLocale()=='gb')
+              {{$category->name_en}}
+                  
+              @endif
+            
+            
+            </h1>
+
+
              </div>
         </div>
         <div class="row">
@@ -37,7 +53,7 @@
                     </div>
                         <div class="card-footer d-flex bg-white d-flex">
                             <div class="p-0 mr-auto ">
-                            <span class="font-weight-bold">Category: <a href="{{ route('announcement.category', [$announcement->category->name_it, $announcement->category->id]) }}" class="text-decoration-none">{{ $announcement->category->name }}</a></span>
+                            <span class="font-weight-bold">{{'ui.categorie'}}: <a href="{{ route('announcement.category', [$announcement->category->name_it, $announcement->category->id]) }}" class="text-decoration-none">{{ $announcement->category->name }}</a></span>
                         </div>
                         <div class="p-0">
                             <i>{{ $announcement->created_at->format('d/m/Y') }} - {{ $announcement->user->name }}</i>

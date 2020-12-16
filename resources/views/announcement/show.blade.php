@@ -1,17 +1,19 @@
 <x-layout>
     <x-slot name="title">Presto.it - Dettaglio Annuncio</x-slot>
     
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12 header-posts"></div>
+    <header class="header-posts d-flex align-items-center">
+        <div class="container">
+            <h2 class="h1 text-accent font-weight-bold text-center">{{$announcement->category->name_it, $announcement->category->id}}</h2>
         </div>
-    </div>
+    </header>
+
+      
     
-    <div class="container-xl my-3 py-3">
+    <div class="container-xl my-5 py-5">
         
         <div class="row my-5">
             
-            <div class="col-12 col-md-5">
+            <div class="col-12 col-md-6">
                 
                 <div class="row">
                     <div class="col">
@@ -24,21 +26,6 @@
                                         <img src="{{ $image->getUrl(300, 150) }}" alt="" class="mx-auto d-block img-fluid">
                                     </div>
                                     @endforeach
-                                    {{-- <div class="px-2">
-                                        @foreach ($announcement->images as $image)
-                                        <img src="{{ $image->getUrl(300, 150) }}" alt="" class="mx-auto d-block img-fluid">
-                                        @endforeach
-                                    </div>
-                                    <div class="px-2">
-                                        @foreach ($announcement->images as $image)
-                                        <img src="{{ $image->getUrl(300, 150) }}" alt="" class="mx-auto d-block img-fluid">
-                                        @endforeach
-                                    </div>
-                                    <div class="px-2">
-                                        @foreach ($announcement->images as $image)
-                                        <img src="{{ $image->getUrl(300, 150) }}" alt="" class="mx-auto d-block img-fluid">
-                                        @endforeach
-                                    </div> --}}
                                 </div>
                             </div>
                             
@@ -50,22 +37,6 @@
                                         <img src="{{ $image->getUrl(300, 150) }}" alt="" class="mx-auto d-block img-fluid">
                                     </div>
                                     @endforeach
-                                    {{-- <div class="px-2">
-                                        @foreach ($announcement->images as $image)
-                                        <img src="{{ $image->getUrl(300, 150) }}" alt="" class="mx-auto d-block img-fluid">
-                                        @endforeach
-                                    </div>
-                                    <div class="px-2">
-                                        @foreach ($announcement->images as $image)
-                                        <img src="{{ $image->getUrl(300, 150) }}" alt="" class="mx-auto d-block img-fluid">
-                                        @endforeach
-                                    </div>
-                                    <div class="px-2">
-                                        @foreach ($announcement->images as $image)
-                                        <img src="{{ $image->getUrl(300, 150) }}" alt="" class="mx-auto d-block img-fluid">
-                                        @endforeach
-                                    </div>
-                                     --}}
                                 </div>
                             </div>
                         </div>
@@ -73,34 +44,24 @@
                     
                 </div>
             </div>
-            <div class="col-12 col-md-7 px-3">
-                <p class="category_style">{{$announcement->category->name}}</p>
-                <h2 class="font-weight-bold">{{$announcement->title}}</h2>
-                
-                {{-- <div class="card-body">
-                    <p>
-                        {{-- @foreach ($announcement->images as $image)
-                            <img src="{{ $image->getUrl(300, 150) }}" alt="" class="rounded float-left">
-                            @endforeach --}}
-                            {{-- {{ $announcement->body }}
-                        </p>
-                    </div> --}}
-                    
-                    
-                    
+            <div class="col-12 col-md-6 px-3">
+                <h3 class="text-first font-weight-bold">Descrizione prodotto</h3>
+                {{-- <p class="category_style">{{$announcement->category->name}}</p> --}}
+                <h2 class="">{{$announcement->title}}</h2>
+
                     <p class="lead">{{$announcement->body}}</p>
-                    
-                    <p>{{$announcement->created_at}}</p>
+                    <p class="text-first font-weight-bold mb-0">Prezzo: <span class="text-accent h4">{{$announcement->price}}€</span></p>
+                    <p class="text-first font-weight-bold mb-0">Caricato da: {{ $announcement->user->name }}</p>
+                    <p class="text-first font-weight-bold mb-0">Caricato il: {{$announcement->created_at}}</p>
+
+                    <a href="#" class="nav-link btn btn-primary border-0 w-50 bg-accent font-weight-bold">Contatta il venditore
+                        <i class="fas fa-chevron-right fa stack-1x"></i>
+                      </a>
                     
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-12">
-                    <h3>Annunci in evidenza</h3>
-                    
-                </div>
-            </div>
+           
         </div>
         
         <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>

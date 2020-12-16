@@ -46,7 +46,7 @@ class GoogleVisionSafeSearchImage implements ShouldQueue
         $response = $imageAnnotator->safeSearchDetection($image);
         $imageAnnotator->close();
 
-        $safe = $response->getSearchAnnotation();
+        $safe = $response->getSafeSearchAnnotation();
 
         $adult = $safe->getAdult();
         $medical = $safe->getMedical();

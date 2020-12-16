@@ -11,6 +11,7 @@ use App\Models\Announcement;
 use function Ramsey\Uuid\v1;
 use Illuminate\Http\Request;
 use App\Models\AnnouncementImage;
+use App\Jobs\GoogleVisionLabelImage;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
@@ -77,11 +78,11 @@ class AnnouncementController extends Controller
                 150,
            ));
 
-           dispatch(new ResizeImage(
-            $newFileName,
-               400,
-               300,
-          ));
+        //    dispatch(new ResizeImage(
+        //     $newFileName,
+        //        400,
+        //        300,
+        //   ));
 
             $i->file = $newFileName;
             $i->announcement_id = $a->id;
@@ -89,6 +90,9 @@ class AnnouncementController extends Controller
             $i->save();
 
             dispatch(new GoogleVisionSafeSearchImage($i->id));
+            dispatch(new GoogleVisionLabelImage($i->id));
+
+            
         }
 
         File::deleteDirectory(storage_path("/app/public/temp/{$uniqueSecret}"));
